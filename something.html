@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {font-family: Arial; background-color: #7fffd4;}
+header {background-color: #333;  color: #fff;  padding: 10px;}
+nav ul li {display: inline-block;  margin-right: 10px;}
+nav ul li a {color: #cc5500;}
+section#content {padding: 20px;}
+div#payment-module {margin-bottom: 20px;}
+form label {display: block;  margin-bottom: 5}
+</style>
+<head>
+<title>Top Notch Bank</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<header>
+<h1>Top Notch Bank</h1>
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Accounts</a></li>
+<li><a href="#">Transfers</a></li>
+<li><a href="#">Payments</a></li>
+</ul>
+</nav>
+</header>
+  <section id="content">
+    <div id="account-module">
+<h2>Accounts</h2><ul id="account-list">
+<li>Savings Account</li>
+<li>Checking Account</li>
+<li>Credit Card</li>
+</ul>
+</div>
+    <div id="transfer-module">
+      <h2>Transfers</h2>
+      <form id="transfer-form">
+        <label for="from-account">From:</label>
+        <select id="from-account">
+            <option value="savings">Savings Account</option>
+            <option value="checking">Checking Account</option>
+        </select>
+        <label for="to-account">To:</label>
+        <select id="to-account">
+            <option value="savings">Savings Account</option>
+            <option value="checking">Checking Account</option
+                ></select>       
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount">        
+        <button type="submit">Transfer</button>
+    </form>
+</div>   
+    <div id="payment-module">
+<h2>Payments</h2>
+      <form id="payment-form">
+        <label for="payee">Payee:</label>
+        <input type="text" id="payee">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount">
+        <button type="submit">Pay</button>
+    </form>
+    </div>
+</section> 
+  <footer><p>&copy; 2023 Top Notch Bank. All rights reserved.</p></footer>
+  <script src="script.js">
+</script>
+</body>
+</html>
