@@ -112,22 +112,22 @@
   </header> -->
   <div class="container">
     <h2>Value Calculator</h2>
-    <form name="npkValues" id="value-form" netlify>
+    <form name="npkValues" netlify>
       <div class="form-group">
         <label for="value1">Value 1:</label>
-        <input name="inputValue1" type="number" id="value1" required>
+        <input name="value1" type="number" required>
       </div>
       <div class="form-group">
         <label for="value2">Value 2:</label>
-        <input name="inputValue2" type="number" id="value2" required>
+        <input name="value2" type="number" required>
       </div>
       <div class="form-group">
         <label for="value3">Value 3:</label>
-        <input name="inputValue3" type="number" id="value3" required>
+        <input name="value3" type="number" required>
       </div>
       <div class="form-group">
         <label for="operation">Operation:</label>
-        <select name="selectOperation" id="operation" required>
+        <select name="operation" required>
           <option name="select" value="">-- Select --</option>
           <option name="wheat" value="wheat">Addition</option>
           <option name="rice" value="rice">Subtraction</option>
@@ -141,10 +141,7 @@
   </div>
 
   <script>
-    function valueSubmission() {
-              document.getElementById('value-form').submit();
-        }
-    const form = document.getElementById('value-form');
+    const form = document.getElementByName('npkValues');
     const output = document.getElementById('output');
 
     form.addEventListener('submit', function(event) {
