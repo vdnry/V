@@ -113,6 +113,7 @@
   <div class="container">
     <h2>Value Calculator</h2>
     <form name="npkValues" netlify>
+      <input type="hidden" name="token" value="<%= jwt %>">
       <div class="form-group">
         <label for="value1">Value 1:</label>
         <input name="value1" type="number" required>
@@ -143,6 +144,16 @@
   <script>
     const form = document.getElementByName('npkValues');
     const output = document.getElementById('output');
+  if (window.netlifyIdentity) {
+  const user = window.netlifyIdentity.currentUser();
+
+  if (user) {
+    const token = user.token.access_token;
+    // Use the token as needed (e.g., include it as a hidden field in a form)
+    // You can access the token variable here and perform further operations
+  }
+}
+
 
     form.addEventListener('submit', function(event) {
       event.preventDefault();
