@@ -115,24 +115,24 @@
     <form name="npkValues" id="value-form" netlify>
       <div class="form-group">
         <label for="value1">Value 1:</label>
-        <input type="number" id="value1" required>
+        <input name="inputValue1" type="number" id="value1" required>
       </div>
       <div class="form-group">
         <label for="value2">Value 2:</label>
-        <input type="number" id="value2" required>
+        <input name="inputValue2" type="number" id="value2" required>
       </div>
       <div class="form-group">
         <label for="value3">Value 3:</label>
-        <input type="number" id="value3" required>
+        <input name="inputValue3" type="number" id="value3" required>
       </div>
       <div class="form-group">
         <label for="operation">Operation:</label>
-        <select id="operation" required>
-          <option value="">-- Select --</option>
-          <option value="wheat">Addition</option>
-          <option value="rice">Subtraction</option>
-          <option value="sugarcane">Multiplication</option>
-          <option value="maize">Division</option>
+        <select name="selectOperation" id="operation" required>
+          <option name="select" value="">-- Select --</option>
+          <option name="wheat" value="wheat">Addition</option>
+          <option name="rice" value="rice">Subtraction</option>
+          <option name="sugarcane" value="sugarcane">Multiplication</option>
+          <option name="maize" value="maize">Division</option>
         </select>
       </div>
       <button type="submit" class="btn-submit">Calculate</button>
