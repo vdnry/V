@@ -202,12 +202,12 @@ input[type="submit"] {
             // Calculate approximate cost per hectare
             var fertilizerCostNitrogen = 60;
             var fertilizerCostPhosphorous = 110;
-            var fertilizerCostNitrogen = 100;
+            var fertilizerCostPotassium = 100;
 
             //Calculate total cost for land
             var totalNitrogenCost = nitrogenFertilizer * fertilizerCostNitrogen;
-            var totalPhosphorousCost = phosphorousFertilizer * fertilizerCostNitrogen;
-            var totalPotassiumCost = potassiumFertilizer * fertilizerCostNitrogen;
+            var totalPhosphorousCost = phosphorousFertilizer * fertilizerCostPhosphorous;
+            var totalPotassiumCost = potassiumFertilizer * fertilizerCostPotassium;
             var totalCost = totalNitrogenCost + totalPhosphorousCost + totalPotassiumCost
 
 
