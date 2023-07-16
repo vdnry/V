@@ -79,6 +79,30 @@ input[type="submit"] {
     margin-top: 20px;
 }
 
+#resultsContainer {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#resultsContainer h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#resultsContainer p {
+    color: #555;
+    margin-bottom: 5px;
+}
+
+#resultsContainer span {
+    font-weight: bold;
+}
+
+
     </style>
     <script>
         function calculate() {
@@ -158,7 +182,6 @@ input[type="submit"] {
         <button type="button" onclick="calculate()">Calculate</button>
         <br>
         <br>
-        <h2>Results:</h2>
         <input type="hidden" id="idealNitrogen" name="idealNitrogen">
         <input type="hidden" id="idealPhosphorous" name="idealPhosphorous">
         <input type="hidden" id="idealPotassium" name="idealPotassium">
@@ -173,23 +196,25 @@ input[type="submit"] {
         
         <input type="hidden" id="totalCost" name="totalCost">
 
-        <input type="submit" value="Submit">
+        <div id="resultsContainer" style="display: none;">
+          <h3>Calculated Results:</h3>
+          <p>Ideal Nitrogen: <span id="displayIdealNitrogen"></span></p>
+          <p>Ideal Phosphorous: <span id="displayIdealPhosphorous"></span></p>
+          <p>Ideal Potassium: <span id="displayIdealPotassium"></span></p>
+          
+          <p>Nitrogen Difference: <span id="displayNitrogenDifference"></span></p>
+          <p>Phosphorous Difference: <span id="displayPhosphorousDifference"></span></p>
+          <p>Potassium Difference: <span id="displayPotassiumDifference"></span></p>
+          
+          <p>Nitrogen Fertilizer: <span id="displayNitrogenFertilizer"></span></p>
+          <p>Phosphorous Fertilizer: <span id="displayPhosphorousFertilizer"></span></p>
+          <p>Potassium Fertilizer: <span id="displayPotassiumFertilizer"></span></p>
+          
+          <p>Total Cost: $<span id="displayTotalCost"></span></p>
+
+          <input type="submit" value="E-mail these results">
+
+      </div>
     </form>
-    <div id="resultsContainer" style="display: none;">
-      <h3>Calculated Results:</h3>
-      <p>Ideal Nitrogen: <span id="displayIdealNitrogen"></span></p>
-      <p>Ideal Phosphorous: <span id="displayIdealPhosphorous"></span></p>
-      <p>Ideal Potassium: <span id="displayIdealPotassium"></span></p>
-      
-      <p>Nitrogen Difference: <span id="displayNitrogenDifference"></span></p>
-      <p>Phosphorous Difference: <span id="displayPhosphorousDifference"></span></p>
-      <p>Potassium Difference: <span id="displayPotassiumDifference"></span></p>
-      
-      <p>Nitrogen Fertilizer: <span id="displayNitrogenFertilizer"></span></p>
-      <p>Phosphorous Fertilizer: <span id="displayPhosphorousFertilizer"></span></p>
-      <p>Potassium Fertilizer: <span id="displayPotassiumFertilizer"></span></p>
-      
-      <p>Total Cost: $<span id="displayTotalCost"></span></p>
-  </div>
 </body>
 </html>
