@@ -238,13 +238,13 @@ input[type="submit"] {
             document.getElementById("displayPhosphorousDifference").textContent = phosphorousDifference;
             document.getElementById("displayPotassiumDifference").textContent = potassiumDifference;
 
-            document.getElementById("displayNitrogenFertilizer").textContent = parseInt(document.getElementById("nitrogenFertilizer").value);
-            document.getElementById("displayPhosphorousFertilizer").textContent = parseInt(document.getElementById("phosphorousFertilizer").value);
-            document.getElementById("displayPotassiumFertilizer").textContent = parseInt(document.getElementById("potassiumFertilizer").value);
+            document.getElementById("displayNitrogenFertilizer").textContent = Math.round(nitrogenFertilizer);
+            document.getElementById("displayPhosphorousFertilizer").textContent = Math.round(phosphorousFertilizer);
+            document.getElementById("displayPotassiumFertilizer").textContent = Math.round(potassiumFertilizer);
          
-            document.getElementById("displayTotalNitrogenCost").textContent = parseInt(document.getElementById("totalNitrogenCost").value);
-            document.getElementById("displayTotalPhosphorousCost").textContent = parseInt(document.getElementById("totalPhosphorousCost").value);
-            document.getElementById("displayTotalPotassiumCost").textContent = parseInt(document.getElementById("totalPotassiumCost").value);
+            document.getElementById("displayTotalNitrogenCost").textContent = Math.round(totalNitrogenCost);
+            document.getElementById("displayTotalPhosphorousCost").textContent = Math.round(totalPhosphorousCost);
+            document.getElementById("displayTotalPotassiumCost").textContent = Math.round(totalPotassiumCost);
 
             document.getElementById("displayTotalCost").textContent = totalCost;
 
