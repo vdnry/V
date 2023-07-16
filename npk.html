@@ -196,8 +196,8 @@ input[type="submit"] {
 
             // Calculate fertilizer requirements
             var nitrogenFertilizer = nitrogenDifference / 0.46;
-            var phosphorousFertilizer = nitrogenDifference / 0.46;
-            var potassiumFertilizer = nitrogenDifference / 0.46;
+            var phosphorousFertilizer = phosphorousDifference / 0.46;
+            var potassiumFertilizer = potassiumDifference / 0.46;
 
             // Calculate approximate cost per hectare
             var fertilizerCostNitrogen = 60;
@@ -287,9 +287,9 @@ input[type="submit"] {
         <input type="hidden" id="phosphorousFertilizer" name="phosphorousFertilizer">
         <input type="hidden" id="potassiumFertilizer" name="potassiumFertilizer">
 
-        <input type="hidden" id="nitrogenCost" name="nitrogenCost">
-        <input type="hidden" id="phosphorousCost" name="phosphorousCost">
-        <input type="hidden" id="potassiumCost" name="potassiumCost">
+        <input type="hidden" id="totalNitrogenCost" name="totalNitrogenCost">
+        <input type="hidden" id="totalPhosphorousCost" name="totalPhosphorousCost">
+        <input type="hidden" id="totalPotassiumCost" name="totalPotassiumCost">
         
         <input type="hidden" id="totalCost" name="totalCost">
 
