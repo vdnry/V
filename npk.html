@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Soil Nutrient Calculator</title>
+<title>Khet Guru Soil Nutrient Calculator</title>
 <style>
 
 body, html{
@@ -174,9 +174,9 @@ input[type="submit"] {
             var potassium = parseFloat(document.getElementById("potassium").value);
 
             // Define ideal nutrient levels
-            var idealNitrogen = 100; // Example value, you can adjust it
-            var idealPhosphorous = 50; // Example value, you can adjust it
-            var idealPotassium = 80; // Example value, you can adjust it
+            var idealNitrogen = 300; // Example value, you can adjust it
+            var idealPhosphorous = 30; // Example value, you can adjust it
+            var idealPotassium = 175; // Example value, you can adjust it
 
             // Calculate nutrient differences
             var nitrogenDifference = idealNitrogen - nitrogen;
@@ -184,13 +184,20 @@ input[type="submit"] {
             var potassiumDifference = idealPotassium - potassium;
 
             // Calculate fertilizer requirements
-            var nitrogenFertilizer = nitrogenDifference > 0 ? nitrogenDifference : 0;
-            var phosphorousFertilizer = phosphorousDifference > 0 ? phosphorousDifference : 0;
-            var potassiumFertilizer = potassiumDifference > 0 ? potassiumDifference : 0;
+            var nitrogenFertilizer = nitrogenDifference / 0.46;
+            var phosphorousFertilizer = nitrogenDifference / 0.46;
+            var potassiumFertilizer = nitrogenDifference / 0.46;
 
             // Calculate approximate cost
-            var fertilizerCostPerUnit = 10; // Example value, you can adjust it
-            var totalCost = (nitrogenFertilizer + phosphorousFertilizer + potassiumFertilizer) * fertilizerCostPerUnit;
+            var fertilizerCostNitrogen = 60; // Example value, you can adjust it
+            var fertilizerCostPhosphorous = 110;
+            var fertilizerCostNitrogen = 100;
+
+            var totalNitrogenCost = nitrogenFertilizer * fertilizerCostNitrogen;
+            var totalPhosphorousCost = nitrogenFertilizer * fertilizerCostNitrogen;
+            var totalPotassiumCost = nitrogenFertilizer * fertilizerCostNitrogen;
+            var totalCost = totalNitrogenCost + totalPhosphorousCost + totalPotassiumCost
+
 
             // Update hidden fields
             document.getElementById("idealNitrogen").value = idealNitrogen;
@@ -204,6 +211,10 @@ input[type="submit"] {
             document.getElementById("nitrogenFertilizer").value = nitrogenFertilizer;
             document.getElementById("phosphorousFertilizer").value = phosphorousFertilizer;
             document.getElementById("potassiumFertilizer").value = potassiumFertilizer;
+
+            document.getElementById("totalNitrogenCost").value = totalNitrogenCost;
+            document.getElementById("totalPhosphorousCost").value = totalPhosphorousCost;
+            document.getElementById("totalPotassiumCost").value = totalPotassiumCost;
 
             document.getElementById("totalCost").value = totalCost;
             // Update displayed results in the separate div element
@@ -219,6 +230,11 @@ input[type="submit"] {
             document.getElementById("displayPhosphorousFertilizer").textContent = phosphorousFertilizer;
             document.getElementById("displayPotassiumFertilizer").textContent = potassiumFertilizer;
 
+            
+            document.getElementById("displayTotalNitrogenCost").textContent = totalNitrogenCost;
+            document.getElementById("displayTotalPhosphorousCost").textContent = totalPhosphorousCost;
+            document.getElementById("displayTotalPotassiumCost").textContent = totalPotassiumCost;
+
             document.getElementById("displayTotalCost").textContent = totalCost;
 
             // Show the results container div
@@ -228,21 +244,23 @@ input[type="submit"] {
 </head>
 <body>
   <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
-    <h1>Soil Nutrient Calculator</h1>
+    <h1>Khet Guru Soil Nutrient Calculator</h1>
     <!--<form action="submit.php" method="post">-->
         <form name="npkValue" netlify>
+        <label for="landArea">Enter land area (in hectares):</label>
+        <input type="number" id="landArea" name="landArea" step="0.01">
         <p>Enter the nutrient contents per hectare:</p>
-        <label for="nitrogen">Nitrogen:</label>
+        <label for="nitrogen">Available Nitrogen (kg/ha):</label>
         <input type="number" id="nitrogen" name="nitrogen" step="0.01">
         <br>
-        <label for="phosphorous">Phosphorous:</label>
+        <label for="phosphorous">Available Phosphorous (kg/ha):</label>
         <input type="number" id="phosphorous" name="phosphorous" step="0.01">
         <br>
-        <label for="potassium">Potassium:</label>
+        <label for="potassium">Available Potassium (kg/ha):</label>
         <input type="number" id="potassium" name="potassium" step="0.01">
         <br>
         <br>
-        <button type="button" onclick="calculate()">Calculate</button>
+        <button type="button" onclick="calculate()">Check requirements</button>
         <br>
         <br>
         <input type="hidden" id="idealNitrogen" name="idealNitrogen">
@@ -256,26 +274,35 @@ input[type="submit"] {
         <input type="hidden" id="nitrogenFertilizer" name="nitrogenFertilizer">
         <input type="hidden" id="phosphorousFertilizer" name="phosphorousFertilizer">
         <input type="hidden" id="potassiumFertilizer" name="potassiumFertilizer">
+
+        <input type="hidden" id="nitrogenCost" name="nitrogenCost">
+        <input type="hidden" id="phosphorousCost" name="phosphorousCost">
+        <input type="hidden" id="potassiumCost" name="potassiumCost">
         
         <input type="hidden" id="totalCost" name="totalCost">
 
         <div id="resultsContainer" style="display: none;">
           <h3>Calculated Results:</h3>
-          <p>Ideal Nitrogen: <span id="displayIdealNitrogen"></span></p>
-          <p>Ideal Phosphorous: <span id="displayIdealPhosphorous"></span></p>
-          <p>Ideal Potassium: <span id="displayIdealPotassium"></span></p>
+          <p>Ideal Nitrogen (kg/ha): <span id="displayIdealNitrogen"></span></p>
+          <p>Ideal Phosphorous (kg/ha): <span id="displayIdealPhosphorous"></span></p>
+          <p>Ideal Potassium (kg/ha): <span id="displayIdealPotassium"></span></p>
           
-          <p>Nitrogen Difference: <span id="displayNitrogenDifference"></span></p>
-          <p>Phosphorous Difference: <span id="displayPhosphorousDifference"></span></p>
-          <p>Potassium Difference: <span id="displayPotassiumDifference"></span></p>
+          <p>Nitrogen Deficit: <span id="displayNitrogenDifference"></span></p>
+          <p>Phosphorous Deficit: <span id="displayPhosphorousDifference"></span></p>
+          <p>Potassium Deficit: <span id="displayPotassiumDifference"></span></p>
           
-          <p>Nitrogen Fertilizer: <span id="displayNitrogenFertilizer"></span></p>
-          <p>Phosphorous Fertilizer: <span id="displayPhosphorousFertilizer"></span></p>
-          <p>Potassium Fertilizer: <span id="displayPotassiumFertilizer"></span></p>
-          
-          <p>Total Cost: $<span id="displayTotalCost"></span></p>
+          <p>Nitrogen Fertilizer Requirement: <span id="displayNitrogenFertilizer"></span></p>
+          <p>Phosphorous Fertilizer Requirement: <span id="displayPhosphorousFertilizer"></span></p>
+          <p>Potassium Fertilizer Requirement: <span id="displayPotassiumFertilizer"></span></p>
 
-          <input type="submit" value="E-mail these results">
+          <p>Nitrogen Fertilizer Cost: <span id="displayTotalNitrogenCost"></span></p>
+          <p>Phosphorous Fertilizer Cost: <span id="displayTotalPhosphorousCost"></span></p>
+          <p>Potassium Fertilizer Cost: <span id="displayTotalPotassiumCost"></span></p>
+          
+          <p>Estimated Cost: ₹<span id="displayTotalCost"></span></p>
+
+          <input type="submit" value="Save results">
+          <p>(Due to technical issues we are currently not able to display the results, but we receive them on our backend)</p>
 
       </div>
     </form>
