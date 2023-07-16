@@ -113,6 +113,7 @@
   <div class="container">
     <h2>Value Calculator</h2>
     <form name="npkValues" netlify>
+      <input type="hidden" id="email" name="email" value="">
       <input type="hidden" name="token" value="{{ jwt }}">
       <div class="form-group">
         <label for="value1">Value 1:</label>
@@ -144,6 +145,11 @@
   <script>
     const form = document.getElementByName('npkValues');
     const output = document.getElementById('output');
+
+    var emailSpan = document.querySelector('.netlify-identity-user');
+    var email = document.getElementById('email');
+  
+    email.value = emailSpan.innerText;
   if (window.netlifyIdentity) {
   const user = window.netlifyIdentity.currentUser();
 
