@@ -212,9 +212,7 @@ input[type="submit"] {
 
 
             // Update hidden fields
-            var email = document.getElementsByClassName("netlify-identity-user");
-            var email2 = document.getElementById("email");
-            email2.innerHTML = email.textContent
+            document.getElementById("email").value = document.getElementsByClassName("netlify-identity-user").textContent;
 
             document.getElementById("idealNitrogen").value = idealNitrogen;
             document.getElementById("idealPhosphorous").value = idealPhosphorous;
