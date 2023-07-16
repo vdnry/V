@@ -169,30 +169,42 @@ input[type="submit"] {
     });
         function calculate() {
             // Get user input values
+            var landArea = parseFloat(document.getElementById("landArea").value);
             var nitrogen = parseFloat(document.getElementById("nitrogen").value);
             var phosphorous = parseFloat(document.getElementById("phosphorous").value);
             var potassium = parseFloat(document.getElementById("potassium").value);
 
             // Define ideal nutrient levels
-            var idealNitrogen = 300; // Example value, you can adjust it
-            var idealPhosphorous = 30; // Example value, you can adjust it
-            var idealPotassium = 175; // Example value, you can adjust it
+            var idealNitrogen = 300; 
+            var idealPhosphorous = 30;
+            var idealPotassium = 175; 
+
+            // Calculate ideal nutrient levels for land
+            var idealNitrogenForLand = idealNitrogen * landArea;
+            var idealPhosphorousForLand = idealPhosphorous * landArea; 
+            var idealPotassiumForLand = idealPotassium * landArea; 
+
+            // Calculate total nutrients in land
+            var totalNitrogen = nitrogen * landArea;
+            var totalPhosphorousCost= phosphorous * landArea; 
+            var totalPotassiumCost = potassium * landArea; 
 
             // Calculate nutrient differences
-            var nitrogenDifference = idealNitrogen - nitrogen;
-            var phosphorousDifference = idealPhosphorous - phosphorous;
-            var potassiumDifference = idealPotassium - potassium;
+            var nitrogenDifference = idealNitrogenForLand - totalNitrogen;
+            var phosphorousDifference = idealPhosphorousForLand - totalPhosphorous;
+            var potassiumDifference = idealPotassiumForLand - totalPotassium;
 
             // Calculate fertilizer requirements
             var nitrogenFertilizer = nitrogenDifference / 0.46;
             var phosphorousFertilizer = nitrogenDifference / 0.46;
             var potassiumFertilizer = nitrogenDifference / 0.46;
 
-            // Calculate approximate cost
-            var fertilizerCostNitrogen = 60; // Example value, you can adjust it
+            // Calculate approximate cost per hectare
+            var fertilizerCostNitrogen = 60;
             var fertilizerCostPhosphorous = 110;
             var fertilizerCostNitrogen = 100;
 
+            //Calculate total cost for land
             var totalNitrogenCost = nitrogenFertilizer * fertilizerCostNitrogen;
             var totalPhosphorousCost = nitrogenFertilizer * fertilizerCostNitrogen;
             var totalPotassiumCost = nitrogenFertilizer * fertilizerCostNitrogen;
