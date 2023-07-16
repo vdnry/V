@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Soil Nutrient Calculator</title>
+<style>
+
+body, html{
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+
+[data-netlify-identity-menu] ul {
+	display: flex;
+}
+
+[data-netlify-identity-menu] li:first-child {
+	margin-right: 16px;
+}
+
+[data-netlify-identity-menu] li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+[data-netlify-identity-menu] a {
+	display: block;
+	position: relative;
+	width: 192px;
+	height: 24px;
+	padding: 8px;
+	outline: 0;
+	cursor: pointer;
+  border: 2px solid #007a70;
+	border-radius: 4px;
+	background-color: #00ad9F;
+	color: white;
+	transition: background-color 0.2s ease;
+	font-size: 16px;
+	font-weight: 500;
+  line-height: 24px;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+	}
+
+[data-netlify-identity-menu] a:hover, [data-netlify-identity-menu] a:focus {
+	background-color: #007a70;
+	text-decoration: none;
+}
+
+
+form{
+  width: inherit;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+h2 {
+    color: #333;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+#resultsContainer {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#resultsContainer h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#resultsContainer p {
+    color: #555;
+    margin-bottom: 5px;
+}
+
+#resultsContainer span {
+    font-weight: bold;
+}
+
+
+    </style>
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      netlifyIdentity.on("logout", function() {
+        // User is logged out
+        // Redirect to another webpage
+        window.location.href = "index.html";
+      });
+
+      netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          // User is not logged in
+          // Perform any other desired actions
+          console.log("User is not logged out");
+        }
+      });
+
+      netlifyIdentity.init();
+    });
+        function calculate() {
+            // Get user input values
+            var nitrogen = parseFloat(document.getElementById("nitrogen").value);
+            var phosphorous = parseFloat(document.getElementById("phosphorous").value);
+            var potassium = parseFloat(document.getElementById("potassium").value);
+
+            // Define ideal nutrient levels
+            var idealNitrogen = 100; // Example value, you can adjust it
+            var idealPhosphorous = 50; // Example value, you can adjust it
+            var idealPotassium = 80; // Example value, you can adjust it
+
+            // Calculate nutrient differences
+            var nitrogenDifference = idealNitrogen - nitrogen;
+            var phosphorousDifference = idealPhosphorous - phosphorous;
+            var potassiumDifference = idealPotassium - potassium;
+
+            // Calculate fertilizer requirements
+            var nitrogenFertilizer = nitrogenDifference > 0 ? nitrogenDifference : 0;
+            var phosphorousFertilizer = phosphorousDifference > 0 ? phosphorousDifference : 0;
+            var potassiumFertilizer = potassiumDifference > 0 ? potassiumDifference : 0;
+
+            // Calculate approximate cost
+            var fertilizerCostPerUnit = 10; // Example value, you can adjust it
+            var totalCost = (nitrogenFertilizer + phosphorousFertilizer + potassiumFertilizer) * fertilizerCostPerUnit;
+
+            // Update hidden fields
+            document.getElementById("idealNitrogen").value = idealNitrogen;
+            document.getElementById("idealPhosphorous").value = idealPhosphorous;
+            document.getElementById("idealPotassium").value = idealPotassium;
+
+            document.getElementById("nitrogenDifference").value = nitrogenDifference;
+            document.getElementById("phosphorousDifference").value = phosphorousDifference;
+            document.getElementById("potassiumDifference").value = potassiumDifference;
+
+            document.getElementById("nitrogenFertilizer").value = nitrogenFertilizer;
+            document.getElementById("phosphorousFertilizer").value = phosphorousFertilizer;
+            document.getElementById("potassiumFertilizer").value = potassiumFertilizer;
+
+            document.getElementById("totalCost").value = totalCost;
+            // Update displayed results in the separate div element
+            document.getElementById("displayIdealNitrogen").textContent = idealNitrogen;
+            document.getElementById("displayIdealPhosphorous").textContent = idealPhosphorous;
+            document.getElementById("displayIdealPotassium").textContent = idealPotassium;
+
+            document.getElementById("displayNitrogenDifference").textContent = nitrogenDifference;
+            document.getElementById("displayPhosphorousDifference").textContent = phosphorousDifference;
+            document.getElementById("displayPotassiumDifference").textContent = potassiumDifference;
+
+            document.getElementById("displayNitrogenFertilizer").textContent = nitrogenFertilizer;
+            document.getElementById("displayPhosphorousFertilizer").textContent = phosphorousFertilizer;
+            document.getElementById("displayPotassiumFertilizer").textContent = potassiumFertilizer;
+
+            document.getElementById("displayTotalCost").textContent = totalCost;
+
+            // Show the results container div
+            document.getElementById("resultsContainer").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+  <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
+    <h1>Soil Nutrient Calculator</h1>
+    <!--<form action="submit.php" method="post">-->
+        <form name="npkValue" netlify>
+        <p>Enter the nutrient contents per hectare:</p>
+        <label for="nitrogen">Nitrogen:</label>
+        <input type="number" id="nitrogen" name="nitrogen" step="0.01">
+        <br>
+        <label for="phosphorous">Phosphorous:</label>
+        <input type="number" id="phosphorous" name="phosphorous" step="0.01">
+        <br>
+        <label for="potassium">Potassium:</label>
+        <input type="number" id="potassium" name="potassium" step="0.01">
+        <br>
+        <br>
+        <button type="button" onclick="calculate()">Calculate</button>
+        <br>
+        <br>
+        <input type="hidden" id="idealNitrogen" name="idealNitrogen">
+        <input type="hidden" id="idealPhosphorous" name="idealPhosphorous">
+        <input type="hidden" id="idealPotassium" name="idealPotassium">
+        
+        <input type="hidden" id="nitrogenDifference" name="nitrogenDifference">
+        <input type="hidden" id="phosphorousDifference" name="phosphorousDifference">
+        <input type="hidden" id="potassiumDifference" name="potassiumDifference">
+        
+        <input type="hidden" id="nitrogenFertilizer" name="nitrogenFertilizer">
+        <input type="hidden" id="phosphorousFertilizer" name="phosphorousFertilizer">
+        <input type="hidden" id="potassiumFertilizer" name="potassiumFertilizer">
+        
+        <input type="hidden" id="totalCost" name="totalCost">
+
+        <div id="resultsContainer" style="display: none;">
+          <h3>Calculated Results:</h3>
+          <p>Ideal Nitrogen: <span id="displayIdealNitrogen"></span></p>
+          <p>Ideal Phosphorous: <span id="displayIdealPhosphorous"></span></p>
+          <p>Ideal Potassium: <span id="displayIdealPotassium"></span></p>
+          
+          <p>Nitrogen Difference: <span id="displayNitrogenDifference"></span></p>
+          <p>Phosphorous Difference: <span id="displayPhosphorousDifference"></span></p>
+          <p>Potassium Difference: <span id="displayPotassiumDifference"></span></p>
+          
+          <p>Nitrogen Fertilizer: <span id="displayNitrogenFertilizer"></span></p>
+          <p>Phosphorous Fertilizer: <span id="displayPhosphorousFertilizer"></span></p>
+          <p>Potassium Fertilizer: <span id="displayPotassiumFertilizer"></span></p>
+          
+          <p>Total Cost: $<span id="displayTotalCost"></span></p>
+
+          <input type="submit" value="E-mail these results">
+
+      </div>
+    </form>
+</body>
+</html>
