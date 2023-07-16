@@ -45,14 +45,13 @@
 						}
 
   </style>
-</head>
 <body>
   <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script type="text/javascript">
       // Check if Netlify Identity Widget script is already present
-  if (!window.netlifyIdentity) {
+  if (window.netlifyIdentity) {
     // Add Netlify Identity Widget script dynamically
-    var script = document.createElement("script");
+    var script = document.removeChild("script");
     script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
     document.head.appendChild(script);
   }
@@ -72,7 +71,8 @@
 
   netlifyIdentity.init();
 });
-
   </script>
+  </head>
   <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
-
+</body>
+</html>

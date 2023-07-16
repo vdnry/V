@@ -156,6 +156,13 @@ input[type="submit"] {
     </head>
     <body>
     <script>
+            // Check if Netlify Identity Widget script is already present
+  if (window.netlifyIdentity) {
+    // Add Netlify Identity Widget script dynamically
+    var script = document.removeChild("script");
+    script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    document.head.appendChild(script);
+  }
       document.addEventListener("DOMContentLoaded", function() {
       netlifyIdentity.on("logout", function() {
         // User is logged out
