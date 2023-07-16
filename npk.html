@@ -197,7 +197,7 @@ input[type="submit"] {
             // Calculate fertilizer requirements
             var nitrogenFertilizer = nitrogenDifference / 0.46;
             var phosphorousFertilizer = phosphorousDifference / 0.46;
-            var potassiumFertilizer = potassiumDifference / 0.46;
+            var potassiumFertilizer = potassiumDifference / 0.50;
 
             // Calculate approximate cost per hectare
             var fertilizerCostNitrogen = 60;
@@ -238,14 +238,13 @@ input[type="submit"] {
             document.getElementById("displayPhosphorousDifference").textContent = phosphorousDifference;
             document.getElementById("displayPotassiumDifference").textContent = potassiumDifference;
 
-            document.getElementById("displayNitrogenFertilizer").textContent = nitrogenFertilizer;
-            document.getElementById("displayPhosphorousFertilizer").textContent = phosphorousFertilizer;
-            document.getElementById("displayPotassiumFertilizer").textContent = potassiumFertilizer;
-
-            
-            document.getElementById("displayTotalNitrogenCost").textContent = totalNitrogenCost;
-            document.getElementById("displayTotalPhosphorousCost").textContent = totalPhosphorousCost;
-            document.getElementById("displayTotalPotassiumCost").textContent = totalPotassiumCost;
+            document.getElementById("displayNitrogenFertilizer").textContent = parseInt(document.getElementById("nitrogenFertilizer").value);
+            document.getElementById("displayPhosphorousFertilizer").textContent = parseInt(document.getElementById("phosphorousFertilizer").value);
+            document.getElementById("displayPotassiumFertilizer").textContent = parseInt(document.getElementById("potassiumFertilizer").value);
+         
+            document.getElementById("displayTotalNitrogenCost").textContent = parseInt(document.getElementById("totalNitrogenCost").value);
+            document.getElementById("displayTotalPhosphorousCost").textContent = parseInt(document.getElementById("totalPhosphorousCost").value);
+            document.getElementById("displayTotalPotassiumCost").textContent = parseInt(document.getElementById("totalPotassiumCost").value);
 
             document.getElementById("displayTotalCost").textContent = totalCost;
 
