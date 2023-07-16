@@ -53,18 +53,12 @@
       script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
       document.head.appendChild(script);
     }
-
+    
     document.addEventListener("DOMContentLoaded", function() {
-      netlifyIdentity.on("init", function(user) {
-        if (user) {
-          // User is logged in
-          // Redirect to another webpage
-          window.location.href = "test.html";
-        } else {
-          // User is not logged in
-          // Perform any other desired actions
-          console.log("User is not logged in");
-        }
+      netlifyIdentity.on("login", function(user) {
+        // User is logged in
+        // Redirect to another webpage
+        window.location.href = "test.html";
       });
 
       netlifyIdentity.init();
