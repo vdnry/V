@@ -1,129 +1,162 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Khet Guru</title>
-  <style>
-    header {
-      background-color: #333;  
-      color: #fff;
-      padding: 10px;
-     }
-    
-    nav ul li {
-      display: inline-block;  
-      margin-right: 10px;
-    }
+    <title>Soil Nutrient Calculator</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
 
-    nav ul li a {
-      color: #cc5500;
-    }
+h1 {
+    text-align: center;
+    color: #333;
+}
 
-    .container {
-      width: 300px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
-    .form-group {
-      margin-bottom: 15px;
-    }
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
 
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-    }
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
 
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 5px;
-      font-size: 16px;
-    }
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
 
-    .btn-submit {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-    }
+h2 {
+    color: #333;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 
-    .output {
-      margin-top: 20px;
-      border: 1px solid #ccc;
-      padding: 10px;
-      font-size: 16px;
-    }
-  </style>
+p {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+    </style>
+    <script>
+        function calculate() {
+            // Get user input values
+            var nitrogen = parseFloat(document.getElementById("nitrogen").value);
+            var phosphorous = parseFloat(document.getElementById("phosphorous").value);
+            var potassium = parseFloat(document.getElementById("potassium").value);
+
+            // Define ideal nutrient levels
+            var idealNitrogen = 100; // Example value, you can adjust it
+            var idealPhosphorous = 50; // Example value, you can adjust it
+            var idealPotassium = 80; // Example value, you can adjust it
+
+            // Calculate nutrient differences
+            var nitrogenDifference = idealNitrogen - nitrogen;
+            var phosphorousDifference = idealPhosphorous - phosphorous;
+            var potassiumDifference = idealPotassium - potassium;
+
+            // Calculate fertilizer requirements
+            var nitrogenFertilizer = nitrogenDifference > 0 ? nitrogenDifference : 0;
+            var phosphorousFertilizer = phosphorousDifference > 0 ? phosphorousDifference : 0;
+            var potassiumFertilizer = potassiumDifference > 0 ? potassiumDifference : 0;
+
+            // Calculate approximate cost
+            var fertilizerCostPerUnit = 10; // Example value, you can adjust it
+            var totalCost = (nitrogenFertilizer + phosphorousFertilizer + potassiumFertilizer) * fertilizerCostPerUnit;
+
+            // Update hidden fields
+            document.getElementById("idealNitrogen").value = idealNitrogen;
+            document.getElementById("idealPhosphorous").value = idealPhosphorous;
+            document.getElementById("idealPotassium").value = idealPotassium;
+
+            document.getElementById("nitrogenDifference").value = nitrogenDifference;
+            document.getElementById("phosphorousDifference").value = phosphorousDifference;
+            document.getElementById("potassiumDifference").value = potassiumDifference;
+
+            document.getElementById("nitrogenFertilizer").value = nitrogenFertilizer;
+            document.getElementById("phosphorousFertilizer").value = phosphorousFertilizer;
+            document.getElementById("potassiumFertilizer").value = potassiumFertilizer;
+
+            document.getElementById("totalCost").value = totalCost;
+        }
+    </script>
 </head>
 <body>
-<!--  <header>
-    <nav>
-      <ul>
-      <li><a href="something.html">Home</a></li>
-      <li><a href="#">Accounts</a></li>
-      <li><a href="#">Transfers</a></li>
-      <li><a href="#">Payments</a></li>
-      </ul>
-    </nav> 
-  </header>-->
-  <div class="container">
-    <h2>Value Calculator</h2>
-    <form id="value-form">
-      <div class="form-group">
-        <label for="value1">Value 1:</label>
-        <input type="number" id="value1" required>
-      </div>
-      <div class="form-group">
-        <label for="value2">Value 2:</label>
-        <input type="number" id="value2" required>
-      </div>
-      <div class="form-group">
-        <label for="value3">Value 3:</label>
-        <input type="number" id="value3" required>
-      </div>
-      <div class="form-group">
-        <label for="operation">Operation:</label>
-        <select id="operation" required>
-          <option value="">-- Select --</option>
-          <option value="wheat">Addition</option>
-          <option value="rice">Subtraction</option>
-          <option value="sugarcane">Multiplication</option>
-          <option value="maize">Division</option>
-        </select>
-      </div>
-      <button type="submit" class="btn-submit">Calculate</button>
+    <h1>Soil Nutrient Calculator</h1>
+    <!--<form action="submit.php" method="post">-->
+        <form name="npkValue" netlify>
+        <p>Enter the nutrient contents per hectare:</p>
+        <label for="nitrogen">Nitrogen:</label>
+        <input type="number" id="nitrogen" name="nitrogen" step="0.01">
+        <br>
+        <label for="phosphorous">Phosphorous:</label>
+        <input type="number" id="phosphorous" name="phosphorous" step="0.01">
+        <br>
+        <label for="potassium">Potassium:</label>
+        <input type="number" id="potassium" name="potassium" step="0.01">
+        <br>
+        <br>
+        <button type="button" onclick="calculate()">Calculate</button>
+        <br>
+        <br>
+        <h2>Results:</h2>
+        <input type="hidden" id="idealNitrogen" name="idealNitrogen">
+        <input type="hidden" id="idealPhosphorous" name="idealPhosphorous">
+        <input type="hidden" id="idealPotassium" name="idealPotassium">
+        
+        <input type="hidden" id="nitrogenDifference" name="nitrogenDifference">
+        <input type="hidden" id="phosphorousDifference" name="phosphorousDifference">
+        <input type="hidden" id="potassiumDifference" name="potassiumDifference">
+        
+        <input type="hidden" id="nitrogenFertilizer" name="nitrogenFertilizer">
+        <input type="hidden" id="phosphorousFertilizer" name="phosphorousFertilizer">
+        <input type="hidden" id="potassiumFertilizer" name="potassiumFertilizer">
+        
+        <input type="hidden" id="totalCost" name="totalCost">
+
+        <input type="submit" value="Submit">
     </form>
-    <div id="output" class="output"></div>
-  </div>
-
-  <script>
-    const form = document.getElementById('value-form');
-    const output = document.getElementById('output');
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const value1 = parseFloat(document.getElementById('value1').value);
-      const value2 = parseFloat(document.getElementById('value2').value);
-      const value3 = parseFloat(document.getElementById('value3').value);
-      const operation = document.getElementById('operation').value;
-
-      let result;
-
-      if (operation === 'wheat') {
-        result = 'Formula not yet been implemented';
-      } else if (operation === 'rice') {
-        result = 'Formula not yet been implemented';
-      } else if (operation === 'sugarcane') {
-        result = 'Formula not yet been implemented';
-      } else if (operation === 'maize') {
-        result = 'Formula not yet been implemented';
-      } else {
-        result = 'Invalid operation';
-      }
-
-      output.textContent = 'Result: ' + result;
-    });
-  </script>
 </body>
 </html>
