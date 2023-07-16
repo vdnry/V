@@ -154,6 +154,23 @@ input[type="submit"] {
     </style>
     <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      netlifyIdentity.on("logout", function() {
+        // User is logged out
+        // Redirect to another webpage
+        window.location.href = "index.html";
+      });
+
+      netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          // User is not logged in
+          // Perform any other desired actions
+          console.log("User is not logged in");
+        }
+      });
+
+      netlifyIdentity.init();
+    });
         function calculate() {
             // Get user input values
             var nitrogen = parseFloat(document.getElementById("nitrogen").value);
