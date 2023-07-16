@@ -120,6 +120,23 @@ input[type="submit"] {
             document.getElementById("potassiumFertilizer").value = potassiumFertilizer;
 
             document.getElementById("totalCost").value = totalCost;
+            // Update displayed results in the separate div element
+            document.getElementById("displayIdealNitrogen").textContent = idealNitrogen;
+            document.getElementById("displayIdealPhosphorous").textContent = idealPhosphorous;
+            document.getElementById("displayIdealPotassium").textContent = idealPotassium;
+
+            document.getElementById("displayNitrogenDifference").textContent = nitrogenDifference;
+            document.getElementById("displayPhosphorousDifference").textContent = phosphorousDifference;
+            document.getElementById("displayPotassiumDifference").textContent = potassiumDifference;
+
+            document.getElementById("displayNitrogenFertilizer").textContent = nitrogenFertilizer;
+            document.getElementById("displayPhosphorousFertilizer").textContent = phosphorousFertilizer;
+            document.getElementById("displayPotassiumFertilizer").textContent = potassiumFertilizer;
+
+            document.getElementById("displayTotalCost").textContent = totalCost;
+
+            // Show the results container div
+            document.getElementById("resultsContainer").style.display = "block";
         }
     </script>
 </head>
@@ -158,5 +175,21 @@ input[type="submit"] {
 
         <input type="submit" value="Submit">
     </form>
+    <div id="resultsContainer" style="display: none;">
+      <h3>Calculated Results:</h3>
+      <p>Ideal Nitrogen: <span id="displayIdealNitrogen"></span></p>
+      <p>Ideal Phosphorous: <span id="displayIdealPhosphorous"></span></p>
+      <p>Ideal Potassium: <span id="displayIdealPotassium"></span></p>
+      
+      <p>Nitrogen Difference: <span id="displayNitrogenDifference"></span></p>
+      <p>Phosphorous Difference: <span id="displayPhosphorousDifference"></span></p>
+      <p>Potassium Difference: <span id="displayPotassiumDifference"></span></p>
+      
+      <p>Nitrogen Fertilizer: <span id="displayNitrogenFertilizer"></span></p>
+      <p>Phosphorous Fertilizer: <span id="displayPhosphorousFertilizer"></span></p>
+      <p>Potassium Fertilizer: <span id="displayPotassiumFertilizer"></span></p>
+      
+      <p>Total Cost: $<span id="displayTotalCost"></span></p>
+  </div>
 </body>
 </html>
