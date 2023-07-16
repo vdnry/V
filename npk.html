@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Khet Guru Soil Nutrient Calculator</title>
+<title>Khet Guru Soil NPK Calculator</title>
 <style>
 
 body, html{
@@ -259,15 +259,17 @@ input[type="submit"] {
     <!--<form action="submit.php" method="post">-->
         <form name="npkValue" netlify>
         <label for="landArea">Enter land area (in hectares):</label>
-        <input type="number" id="landArea" name="landArea" step="0.01">
-        <p>Enter the nutrient contents per hectare:</p>
-        <label for="nitrogen">Available Nitrogen (kg/ha):</label>
+        <input type="number" id="landArea" name="landArea" step="0.01"><br>
+        <h4>Ideal Nitrogen Content: <span id="displayIdealNitrogen"></span> (kg/ha)</h4>
+        <h4>Ideal Phosphorous Content: <span id="displayIdealPhosphorous"></span> (kg/ha)</h4>
+        <h4>Ideal Potassium Content: <span id="displayIdealPotassium"></span> (kg/ha)</h4>
+        <label for="nitrogen">Available Nitrogen in soil (kg/ha):</label>
         <input type="number" id="nitrogen" name="nitrogen" step="0.01">
         <br>
-        <label for="phosphorous">Available Phosphorous (kg/ha):</label>
+        <label for="phosphorous">Available Phosphorous in soil (kg/ha):</label>
         <input type="number" id="phosphorous" name="phosphorous" step="0.01">
         <br>
-        <label for="potassium">Available Potassium (kg/ha):</label>
+        <label for="potassium">Available Potassium in soil (kg/ha):</label>
         <input type="number" id="potassium" name="potassium" step="0.01">
         <br>
         <br>
@@ -294,26 +296,23 @@ input[type="submit"] {
 
         <div id="resultsContainer" style="display: none;">
           <h3>Calculated Results:</h3>
-          <p>Ideal Nitrogen (kg/ha): <span id="displayIdealNitrogen"></span></p>
-          <p>Ideal Phosphorous (kg/ha): <span id="displayIdealPhosphorous"></span></p>
-          <p>Ideal Potassium (kg/ha): <span id="displayIdealPotassium"></span></p>
           
-          <p>Nitrogen Deficit: <span id="displayNitrogenDifference"></span></p>
-          <p>Phosphorous Deficit: <span id="displayPhosphorousDifference"></span></p>
-          <p>Potassium Deficit: <span id="displayPotassiumDifference"></span></p>
+          <p>Nitrogen Deficit: <span id="displayNitrogenDifference"></span> kg</p>
+          <p>Phosphorous Deficit: <span id="displayPhosphorousDifference"></span> kg</p>
+          <p>Potassium Deficit: <span id="displayPotassiumDifference"></span> kg</p>
           
-          <p>Nitrogen Fertilizer Requirement: <span id="displayNitrogenFertilizer"></span></p>
-          <p>Phosphorous Fertilizer Requirement: <span id="displayPhosphorousFertilizer"></span></p>
-          <p>Potassium Fertilizer Requirement: <span id="displayPotassiumFertilizer"></span></p>
+          <p>Nitrogen Fertilizer Requirement (46-0-0 fertilizer): <span id="displayNitrogenFertilizer"></span> kg</p>
+          <p>Phosphorous Fertilizer Requirement (0-46-0 fertilizer): <span id="displayPhosphorousFertilizer"></span> kg</p>
+          <p>Potassium Fertilizer Requirement (0-0-50 fertilizer): <span id="displayPotassiumFertilizer"></span> kg</p>
 
-          <p>Nitrogen Fertilizer Cost: <span id="displayTotalNitrogenCost"></span></p>
-          <p>Phosphorous Fertilizer Cost: <span id="displayTotalPhosphorousCost"></span></p>
-          <p>Potassium Fertilizer Cost: <span id="displayTotalPotassiumCost"></span></p>
+          <p>Nitrogen Fertilizer Cost: ₹<span id="displayTotalNitrogenCost"></span></p>
+          <p>Phosphorous Fertilizer Cost: ₹<span id="displayTotalPhosphorousCost"></span></p>
+          <p>Potassium Fertilizer Cost: ₹<span id="displayTotalPotassiumCost"></span></p>
           
           <p>Estimated Cost: ₹<span id="displayTotalCost"></span></p>
 
           <input type="submit" value="Save results">
-          <p>(Due to technical issues we are currently not able to display the results, but we receive them on our backend)</p>
+          <p>(Due to technical issues we are currently not able to save the results for later access for users, but we store them in our backend)</p>
 
       </div>
     </form>
