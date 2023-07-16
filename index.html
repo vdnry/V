@@ -47,6 +47,18 @@
   </style>
 </head>
 <body>
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js">
+    // Check if the user is logged in using Netlify Identity Widget
+if (netlifyIdentity.currentUser()) {
+  // User is logged in
+  // Redirect to another webpage
+  window.location.href = "khetguru.netlify.app/test.html";
+} else {
+  // User is not logged in
+  // Perform any other desired actions
+  console.log("User is not logged in");
+}
+
+  </script>
   <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
 
