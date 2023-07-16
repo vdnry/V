@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Khet Guru Soil NPK Calculator</title>
+<title>Khet Guru Soil NPK Calculator for Wheat</title>
 <style>
 
 body, html{
@@ -175,9 +175,9 @@ input[type="submit"] {
             var potassium = parseFloat(document.getElementById("potassium").value);
 
             // Define ideal nutrient levels
-            var idealNitrogen = 300; 
-            var idealPhosphorous = 30;
-            var idealPotassium = 175; 
+            var idealNitrogen = 120; 
+            var idealPhosphorous = 60;
+            var idealPotassium = 40; 
 
             // Calculate ideal nutrient levels for land
             var idealNitrogenForLand = idealNitrogen * landArea;
@@ -257,12 +257,13 @@ input[type="submit"] {
   <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
     <h1>Khet Guru Soil Nutrient Calculator</h1>
     <!--<form action="submit.php" method="post">-->
-        <form name="npkValue" netlify>
+        <form name="npkValue" netlify>        
+        <h4>Ideal Nitrogen Content: 120 (kg/ha)</h4>
+        <h4>Ideal Phosphorous Content: 60 (kg/ha)</h4>
+        <h4>Ideal Potassium Content: 40 (kg/ha)</h4>
         <label for="landArea">Enter land area (in hectares):</label>
         <input type="number" id="landArea" name="landArea" step="0.01"><br>
-        <h4>Ideal Nitrogen Content: <span id="displayIdealNitrogen"></span> (kg/ha)</h4>
-        <h4>Ideal Phosphorous Content: <span id="displayIdealPhosphorous"></span> (kg/ha)</h4>
-        <h4>Ideal Potassium Content: <span id="displayIdealPotassium"></span> (kg/ha)</h4>
+
         <label for="nitrogen">Available Nitrogen in soil (kg/ha):</label>
         <input type="number" id="nitrogen" name="nitrogen" step="0.01">
         <br>
