@@ -46,31 +46,29 @@
 
   </style>
 <body>
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script type="text/javascript">
-      // Check if Netlify Identity Widget script is already present
-  if (window.netlifyIdentity) {
-    // Add Netlify Identity Widget script dynamically
-    var script = document.removeChild("script");
-    script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
-    document.head.appendChild(script);
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-  netlifyIdentity.on("init", function(user) {
-    if (user) {
-      // User is logged in
-      // Redirect to another webpage
-      window.location.href = "test.html";
-    } else {
-      // User is not logged in
-      // Perform any other desired actions
-      console.log("User is not logged in");
+    if (typeof window.netlifyIdentity === 'undefined') {
+      // Add Netlify Identity Widget script dynamically
+      var script = document.createElement("script");
+      script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+      document.head.appendChild(script);
     }
-  });
 
-  netlifyIdentity.init();
-});
+    document.addEventListener("DOMContentLoaded", function() {
+      netlifyIdentity.on("init", function(user) {
+        if (user) {
+          // User is logged in
+          // Redirect to another webpage
+          window.location.href = "test.html";
+        } else {
+          // User is not logged in
+          // Perform any other desired actions
+          console.log("User is not logged in");
+        }
+      });
+
+      netlifyIdentity.init();
+    });
   </script>
   </head>
   <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
