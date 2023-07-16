@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Soil Nutrient Calculator</title>
-    <style>
-body {
+<title>Soil Nutrient Calculator</title>
+<style>
+
+body, html{
     font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100%;
     background-color: #f2f2f2;
     margin: 0;
     padding: 20px;
+}
+
+
+[data-netlify-identity-menu] ul {
+	display: flex;
+}
+
+[data-netlify-identity-menu] li:first-child {
+	margin-right: 16px;
+}
+
+[data-netlify-identity-menu] li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+[data-netlify-identity-menu] a {
+	display: block;
+	position: relative;
+	width: 192px;
+	height: 24px;
+	padding: 8px;
+	outline: 0;
+	cursor: pointer;
+  border: 2px solid #007a70;
+	border-radius: 4px;
+	background-color: #00ad9F;
+	color: white;
+	transition: background-color 0.2s ease;
+	font-size: 16px;
+	font-weight: 500;
+  line-height: 24px;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+	}
+
+[data-netlify-identity-menu] a:hover, [data-netlify-identity-menu] a:focus {
+	background-color: #007a70;
+	text-decoration: none;
+}
+
+
+form{
+  width: inherit;
 }
 
 h1 {
@@ -104,7 +152,7 @@ input[type="submit"] {
 
 
     </style>
-    <script>
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js">
         function calculate() {
             // Get user input values
             var nitrogen = parseFloat(document.getElementById("nitrogen").value);
@@ -165,6 +213,7 @@ input[type="submit"] {
     </script>
 </head>
 <body>
+  <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
     <h1>Soil Nutrient Calculator</h1>
     <!--<form action="submit.php" method="post">-->
         <form name="npkValue" netlify>
