@@ -2,74 +2,70 @@
 <html>
 <head>
   <title>Khet Guru</title>
-  <style>
-
-  [data-netlify-identity-menu] ul {
-							display: flex;
-						}
-
-						[data-netlify-identity-menu] li:first-child {
-							margin-right: 16px;
-						}
-
-						[data-netlify-identity-menu] li {
-							list-style-type: none;
-							display: inline-block;
-						}
-
-						[data-netlify-identity-menu] a {
-							display: block;
-							position: relative;
-							width: 192px;
-							height: 24px;
-							padding: 8px;
-							outline: 0;
-							cursor: pointer;
-							border: 2px solid #007a70;
-							border-radius: 4px;
-							background-color: #00ad9F;
-							color: white;
-							transition: background-color 0.2s ease;
-							font-size: 16px;
-							font-weight: 500;
-							line-height: 24px;
-							text-align: center;
-							text-decoration: none;
-							white-space: nowrap;
-						}
-
-						[data-netlify-identity-menu] a:hover,
-						[data-netlify-identity-menu] a:focus {
-							background-color: #007a70;
-							text-decoration: none;
-						}
-
-  </style>
-<body>
   <script type="text/javascript">
-    if (typeof window.netlifyIdentity === 'undefined') {
-      // Add Netlify Identity Widget script dynamically
-      var script = document.createElement("script");
-      script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
-      document.head.appendChild(script);
+	document.addEventListener("DOMContentLoaded", function() {
+	netlifyIdentity.on("init", function(user) {
+	  if (user) {
+		// User is logged in
+		// Redirect to another webpage
+		window.location.href = "/test";
+		window.location.href = "test.html";
+	  } else {
+		// User is not logged in
+		// Perform any other desired actions
+		console.log("User is not logged in");
+	  }
+	});
+  
+	netlifyIdentity.init();
+  });
+	</script>
+	<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+   <style>
+    [data-netlify-identity-menu] ul {
+      display: flex;
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-      netlifyIdentity.init();
+    [data-netlify-identity-menu] li:first-child {
+      margin-right: 16px;
+    }
 
-      var user = netlifyIdentity.currentUser();
-      if (user) {
-        // User is logged in
-        // Redirect to another webpage
-        window.location.href = "test.html";
-      } else {
-        // User is not logged in
-        // Perform any other desired actions
-        console.log("User is not logged in");
-      }
-    });
-  </script>
-  </head>
+    [data-netlify-identity-menu] li {
+      list-style-type: none;
+      display: inline-block;
+    }
+
+    [data-netlify-identity-menu] a {
+      display: block;
+      position: relative;
+      width: 192px;
+      height: 24px;
+      padding: 8px;
+      outline: 0;
+      cursor: pointer;
+      border: 2px solid #007a70;
+      border-radius: 4px;
+      background-color: #00ad9F;
+      color: white;
+      transition: background-color 0.2s ease;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    [data-netlify-identity-menu] a:hover,
+    [data-netlify-identity-menu] a:focus {
+      background-color: #007a70;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
   <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
 </body>
 </html>
+
+
