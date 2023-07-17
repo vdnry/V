@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NPK Calculators / एनपीके कैलकुलेटर</title>
+  <title>NPK Calculators</title>
   <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
+    document.getElementsByClassName("netlify-identity-item.netlify-identity-user-details")[1].innerText = "लॉग इन ईमेल:";
     function redirect() {
       window.location.href = "/hindi";
     }
@@ -80,7 +81,18 @@
       opacity: 0;
     }
   
-    
+    button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
     
     .button {
       display: inline-block;

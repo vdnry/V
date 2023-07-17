@@ -171,6 +171,9 @@ input[type="submit"] {
 
       netlifyIdentity.init();
     });
+    
+        document.getElementsByClassName("netlify-identity-item.netlify-identity-user-details")[1].innerText = "लॉग इन ईमेल:";
+
         function calculate() {
             // Get user input values
             var landArea = parseFloat(document.getElementById("landArea").value);
