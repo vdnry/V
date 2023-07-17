@@ -3,6 +3,9 @@
 <head>
   <title>खेत गुरु</title>
   <script type="text/javascript">
+  function redirect() {
+      window.location.href = "https://khetguru.netlify.app";
+  }
 	document.addEventListener("DOMContentLoaded", function() {
 	netlifyIdentity.on("init", function(user) {
 	  if (user) {
@@ -64,5 +67,6 @@
 </head>
 <body>
   <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
+  <button onclick="redirect()">Switch to English</button>
 </body>
 </html>

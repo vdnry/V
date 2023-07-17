@@ -154,6 +154,10 @@ input[type="submit"] {
     </style>
     <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
+    function redirect() {
+      window.location.href = "/hindi";
+    }
+
       document.addEventListener("DOMContentLoaded", function() {
 
       netlifyIdentity.on("init", function(user) {
@@ -256,6 +260,7 @@ input[type="submit"] {
     </script>
 </head>
 <body>
+<button onclick="redirect()">हिंदी में देखें</button>
   <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
     <h1>Khet Guru Soil NPK Calculator For Wheat</h1>
     <!--<form action="submit.php" method="post">-->

@@ -3,6 +3,11 @@
 <head>
   <title>NPK Calculators / एनपीके कैलकुलेटर</title>
   <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+  function redirect() {
+      window.location.href = "https://khetguru.netlify.app";
+  }
+  </script>
   <style>
 
     [data-netlify-identity-menu] ul {
@@ -103,6 +108,7 @@
   </style>
 </head>
 <body>
+<button onclick="redirect()">Switch to English</button>
 <div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
   <div class="container">
     <a href="wheat.html" class="button">गेहूं के लिए एनपीके कैलकुलेटर</a>
