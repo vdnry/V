@@ -6,13 +6,15 @@
       function redirect() {
         window.location.href = "/hindi";
       }
-      document.addEventListener("DOMContentLoaded", function () {
+      function userCheck() {
         netlifyIdentity.on("init", function (user) {
           if (user) {
             window.location.href = "npk.html";
           }
         });
-      });
+      };
+      document.addEventListener("DOMContentLoaded", userCheck())
+      setInterval(userCheck, 2000)
     </script>
     <script
       type="text/javascript"
