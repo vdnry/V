@@ -1,129 +1,142 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>NPK Calculators</title>
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    function redirect() {
-      window.location.href = "/hindi";
-    }
-  </script>
-  <style>
+  <head>
+    <title>NPK Calculators</title>
+    <script
+      type="text/javascript"
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
+    <script>
+      function redirect() {
+        window.location.href = "/hindi";
+      }
 
-    [data-netlify-identity-menu] ul {
-      display: flex;
-    }
+      function userCheck() {
+        if (!netlifyIdentity.currentUser()) {
+          window.location.href = "index.html";
+        }
+      }
+      document.addEventListener("DOMContentLoaded", userCheck);
+      setInterval(userCheck, 100);
+    </script>
+    <style>
+      [data-netlify-identity-menu] ul {
+        display: flex;
+      }
 
-    [data-netlify-identity-menu] li:first-child {
-      margin-right: 16px;
-    }
+      [data-netlify-identity-menu] li:first-child {
+        margin-right: 16px;
+      }
 
-    [data-netlify-identity-menu] li {
-      list-style-type: none;
-      display: inline-block;
-    }
+      [data-netlify-identity-menu] li {
+        list-style-type: none;
+        display: inline-block;
+      }
 
-    [data-netlify-identity-menu] a {
-      display: block;
-      position: relative;
-      width: 192px;
-      height: 24px;
-      padding: 8px;
-      outline: 0;
-      cursor: pointer;
-      border: 2px solid #007a70;
-      border-radius: 4px;
-      background-color: #00ad9F;
-      color: white;
-      transition: background-color 0.2s ease;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-      text-align: center;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+      [data-netlify-identity-menu] a {
+        display: block;
+        position: relative;
+        width: 192px;
+        height: 24px;
+        padding: 8px;
+        outline: 0;
+        cursor: pointer;
+        border: 2px solid #007a70;
+        border-radius: 4px;
+        background-color: #00ad9f;
+        color: white;
+        transition: background-color 0.2s ease;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
+      }
 
-    [data-netlify-identity-menu] a:hover,
-    [data-netlify-identity-menu] a:focus {
-      background-color: #007a70;
-      text-decoration: none;
-    }
+      [data-netlify-identity-menu] a:hover,
+      [data-netlify-identity-menu] a:focus {
+        background-color: #007a70;
+        text-decoration: none;
+      }
 
-    body {
-      text-align: center;
-      background-color: #e5ffe6;
-      font-family: Arial, sans-serif;
-    }
-    
-    .container {
-      display: inline-block;
-      padding: 20px;
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .container::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to right, #FFC371, #FF5F6D);
-      z-index: -1;
-      transition: opacity 0.5s ease;
-    }
-    
-    .container:hover::before {
-      opacity: 0;
-    }
-  
-    button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-    
-    .button {
-      display: inline-block;
-      padding: 30px 60px;
-      background-color: #4CAF50;
-      color: white;
-      font-size: 28px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-    }
-    
-    .button:hover {
-      background-color: #45a049;
-    }
-    
-    .coming-soon {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #666666;
-    }
-  </style>
-</head>
-<body>
-<button onclick="redirect()">हिंदी में देखें</button>
-<div style="display: flex; justify-content: center;" data-netlify-identity-menu></div>
-  <div class="container">
-    <a href="wheat.html" class="button">NPK Calculator For Wheat</a>
-  </div>
-  <p class="coming-soon">More coming soon</p>
-</body>
+      body {
+        text-align: center;
+        background-color: #e5ffe6;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: inline-block;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to right, #ffc371, #ff5f6d);
+        z-index: -1;
+        transition: opacity 0.5s ease;
+      }
+
+      .container:hover::before {
+        opacity: 0;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 30px 60px;
+        background-color: #4caf50;
+        color: white;
+        font-size: 28px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #45a049;
+      }
+
+      .coming-soon {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #666666;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="redirect()">हिंदी में देखें</button>
+    <div
+      style="display: flex; justify-content: center"
+      data-netlify-identity-menu
+    ></div>
+    <div class="container">
+      <a href="wheat.html" class="button">NPK Calculator For Wheat</a>
+    </div>
+    <p class="coming-soon">More coming soon</p>
+  </body>
 </html>
