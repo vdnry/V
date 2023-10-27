@@ -1,5 +1,32 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
+=======
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <title>Khet Guru</title>
+    <script type="text/javascript">
+      function redirect() {
+        window.location.href = "/hindi";
+      }
+      function userCheck() {
+        if (netlifyIdentity.currentUser()) {
+          window.location.href = "npk.html";
+        }
+      }
+      document.addEventListener("DOMContentLoaded", userCheck);
+      setInterval(userCheck, 2666);
+    </script>
+    <script
+      type="text/javascript"
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+      class = "khetGuru"
+    ></script>
+    <style>
+      [data-netlify-identity-menu] ul {
+        display: flex;
+      }
+>>>>>>> parent of f2ce609 (Revert "Fit to screen in android")
 
 <head>
   <link rel="stylesheet" href="style.css" />
