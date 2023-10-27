@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NPK Calculators</title>
     <script
       type="text/javascript"
@@ -20,58 +23,19 @@
       setInterval(userCheck, 100);
     </script>
     <style>
-      [data-netlify-identity-menu] ul {
-        display: flex;
-      }
-
-      [data-netlify-identity-menu] li:first-child {
-        margin-right: 16px;
-      }
-
-      [data-netlify-identity-menu] li {
-        list-style-type: none;
-        display: inline-block;
-      }
-
-      [data-netlify-identity-menu] a {
-        display: block;
-        position: relative;
-        width: 192px;
-        height: 24px;
-        padding: 8px;
-        outline: 0;
-        cursor: pointer;
-        border: 2px solid #007a70;
-        border-radius: 4px;
-        background-color: #00ad9f;
-        color: white;
-        transition: background-color 0.2s ease;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 24px;
-        text-align: center;
-        text-decoration: none;
-        white-space: nowrap;
-      }
-
-      [data-netlify-identity-menu] a:hover,
-      [data-netlify-identity-menu] a:focus {
-        background-color: #007a70;
-        text-decoration: none;
-      }
-
-      body {
-        text-align: center;
-        background-color: #e5ffe6;
-        font-family: Arial, sans-serif;
-      }
 
       .container {
+        display: flex;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        justify-content: center;
         display: inline-block;
         padding: 20px;
         border-radius: 10px;
-        position: relative;
+        position: absolute;
         overflow: hidden;
+        
       }
 
       .container::before {
@@ -125,18 +89,25 @@
         margin-top: 20px;
         font-size: 18px;
         color: #666666;
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <button onclick="redirect()">हिंदी में देखें</button>
-    <div
-      style="display: flex; justify-content: center"
-      data-netlify-identity-menu
-    ></div>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="https://khetguru.netlify.app">Home</a></li>
+          <li><a href="npk.html">NPK Calculator</a></li>
+          <li class="right"><a href="/hindi/">हिंदी में देखें</a></li>
+          <li class="right"><a data-netlify-identity-button></a></li>
+        </ul>
+      </nav>
+    </header>
+    <br><br><br><br><br>
     <div class="container">
       <a href="wheat.html" class="button">NPK Calculator For Wheat</a>
-    </div>
+    </div><br><br><br><br><br><br><br><br><br><br>
     <p class="coming-soon">More coming soon</p>
   </body>
 </html>

@@ -1,94 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Khet Guru</title>
-    <script type="text/javascript">
-      function redirect() {
-        window.location.href = "/hindi";
-      }
-      function userCheck() {
-        if (netlifyIdentity.currentUser()) {
-          window.location.href = "npk.html";
-        }
-      }
-      document.addEventListener("DOMContentLoaded", userCheck);
-      setInterval(userCheck, 2666);
-    </script>
-    <script
-      type="text/javascript"
-      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-      class = "khetGuru"
-    ></script>
-    <style>
-      [data-netlify-identity-menu] ul {
-        display: flex;
-      }
 
-      [data-netlify-identity-menu] li:first-child {
-        margin-right: 16px;
+<head>
+  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khet Guru</title>
+  <script type="text/javascript">
+    function redirect() {
+      window.location.href = "/hindi";
+    }
+    function userCheck() {
+      if (netlifyIdentity.currentUser()) {
+        window.location.href = "npk.html";
       }
+    }
+    document.addEventListener("DOMContentLoaded", userCheck);
+    setInterval(userCheck, 2666);
+  </script>
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
 
-      [data-netlify-identity-menu] li {
-        list-style-type: none;
-        display: inline-block;
-      }
-
-      [data-netlify-identity-menu] a {
-        display: block;
-        position: relative;
-        width: 192px;
-        height: 24px;
-        padding: 8px;
-        outline: 0;
-        cursor: pointer;
-        border: 2px solid #007a70;
-        border-radius: 4px;
-        background-color: #00ad9f;
-        color: white;
-        transition: background-color 0.2s ease;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 24px;
-        text-align: center;
-        text-decoration: none;
-        white-space: nowrap;
-      }
-
-      [data-netlify-identity-menu] a:hover,
-      [data-netlify-identity-menu] a:focus {
-        background-color: #007a70;
-        text-decoration: none;
-      }
-      button {
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        cursor: pointer;
-        border-radius: 4px;
-      }
-      body {
-        background-image: url("khetguru.jpeg");
-        background-repeat: no-repeat;
-        background-color: #e5ffe6;
-        background-size: cover;
-      }
-    </style>
-  </head>
-  <body>
-    <button onclick="redirect()">हिंदी में देखें</button>
-    <div
-      style="display: flex; justify-content: center"
-      data-netlify-identity-menu
-    ></div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <div style="text-align: center">
-      <h2>Please sign up or log in to use our app</h2>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="https://khetguru.netlify.app">Home</a></li>
+        <li><a href="npk.html">NPK Calculator</a></li>
+        <li class="right"><a href="/hindi/">हिंदी में देखें</a></li>
+        <li class="right"><a data-netlify-identity-button></a></li>
       </ul>
-    </div>
-  </body>
+    </nav>
+  </header>
+  <div class="logo">
+    <h1>Welcome to Khetguru</h1>
+  </div>
+  <section class="main-stuff">
+    <h2>Please login or signup to continue</h2>
+    <p>Khet Guru is a revolutionary tool that puts the power of smart agriculture directly into the hands of farmers. Using soil fertility data, Khet Guru provides farmers with the essential knowledge needed to make informed decisions about crop selection, planting times, and fertilizer use.</p>
+    <p>No more guesswork. No more uncertainty. Khet Guru takes into account your location, the time of year, and the local climate, offering tailored recommendations for crops that are most likely to thrive in your specific conditions. But it doesn't stop there. Khet Guru goes a step further, calculating the precise amount of fertilizer you'll need and even estimating the associated costs.</p>
+    <p>With Khet Guru, you're not just farming; you're farming smart.</p>
+  </section>
+</body>
+
 </html>
