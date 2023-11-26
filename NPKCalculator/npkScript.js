@@ -3,8 +3,11 @@ let userEmail;
 if (window.netlifyIdentity) {
   window.netlifyIdentity.on("login", (user) => {
     userEmail = user.email;
+    document.getElementById("email").value = userEmail;
   });
 }
+
+
 
 function userCheck() {
   if (!netlifyIdentity.currentUser()) {
@@ -58,8 +61,6 @@ function calculate() {
   var totalCost = Math.round(totalNitrogenCost + totalPhosphorousCost + totalPotassiumCost);
 
   // Update hidden fields
-
-  document.getElementById("email").value = userEmail;
 
   document.getElementById("idealNitrogen").value = idealNitrogen;
   document.getElementById("idealPhosphorous").value = idealPhosphorous;
