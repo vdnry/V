@@ -27,24 +27,24 @@ function calculate() {
   var idealPotassium = 40;
 
   // Calculate ideal nutrient levels for land
-  var idealNitrogenForLand = idealNitrogen * landArea;
-  var idealPhosphorousForLand = idealPhosphorous * landArea;
-  var idealPotassiumForLand = idealPotassium * landArea;
+  var idealNitrogenForLand = Math.round(idealNitrogen * landArea);
+  var idealPhosphorousForLand = Math.round(idealPhosphorous * landArea);
+  var idealPotassiumForLand = Math.round(idealPotassium * landArea);
 
   // Calculate total nutrients in land
-  var totalNitrogen = nitrogen * landArea;
-  var totalPhosphorous = phosphorous * landArea;
-  var totalPotassium = potassium * landArea;
+  var totalNitrogen = Math.round(nitrogen * landArea);
+  var totalPhosphorous = Math.round(phosphorous * landArea);
+  var totalPotassium = Math.round(potassium * landArea);
 
   // Calculate nutrient differences
-  var nitrogenDifference = idealNitrogenForLand - totalNitrogen;
-  var phosphorousDifference = idealPhosphorousForLand - totalPhosphorous;
-  var potassiumDifference = idealPotassiumForLand - totalPotassium;
+  var nitrogenDifference = Math.round(idealNitrogenForLand - totalNitrogen);
+  var phosphorousDifference = Math.round(idealPhosphorousForLand - totalPhosphorous);
+  var potassiumDifference = Math.round(idealPotassiumForLand - totalPotassium);
 
   // Calculate fertilizer requirements
-  var nitrogenFertilizer = nitrogenDifference / 0.46;
-  var phosphorousFertilizer = phosphorousDifference / 0.46;
-  var potassiumFertilizer = potassiumDifference / 0.5;
+  var nitrogenFertilizer = Math.round(nitrogenDifference / 0.46);
+  var phosphorousFertilizer = Math.round(phosphorousDifference / 0.46);
+  var potassiumFertilizer = Math.round(potassiumDifference / 0.5);
 
   // Calculate approximate cost per hectare
   var fertilizerCostNitrogen = 60;
@@ -52,10 +52,10 @@ function calculate() {
   var fertilizerCostPotassium = 100;
 
   //Calculate total cost for land
-  var totalNitrogenCost = nitrogenFertilizer * fertilizerCostNitrogen;
-  var totalPhosphorousCost = phosphorousFertilizer * fertilizerCostPhosphorous;
-  var totalPotassiumCost = potassiumFertilizer * fertilizerCostPotassium;
-  var totalCost = totalNitrogenCost + totalPhosphorousCost + totalPotassiumCost;
+  var totalNitrogenCost = Math.round(nitrogenFertilizer * fertilizerCostNitrogen);
+  var totalPhosphorousCost = Math.round(phosphorousFertilizer * fertilizerCostPhosphorous);
+  var totalPotassiumCost = Math.round(potassiumFertilizer * fertilizerCostPotassium);
+  var totalCost = Math.round(totalNitrogenCost + totalPhosphorousCost + totalPotassiumCost);
 
   // Update hidden fields
 
