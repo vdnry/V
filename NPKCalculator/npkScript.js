@@ -1,18 +1,18 @@
-let userEmail
+let userEmail;
 
 if (window.netlifyIdentity) {
-  window.netlifyIdentity.on('login', user => {
+  window.netlifyIdentity.on("login", (user) => {
     userEmail = user.email;
   });
 }
 
 function userCheck() {
-    if (!netlifyIdentity.currentUser()) {
-      window.location.href = "https://khetguru.netlify.app";
-    }
+  if (!netlifyIdentity.currentUser()) {
+    window.location.href = "https://khetguru.netlify.app";
   }
-  document.addEventListener("DOMContentLoaded", userCheck);
-  setInterval(userCheck, 2666);
+}
+document.addEventListener("DOMContentLoaded", userCheck);
+setInterval(userCheck, 2666);
 
 function calculate() {
   // Get user input values
