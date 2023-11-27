@@ -17,7 +17,7 @@ nav ul {
 
 nav li {
   display: inline;
-  margin: 0px 20px 0px 20px;
+  margin: 0px 10px 0px 10px;
 }
 
 nav a {
@@ -66,6 +66,10 @@ img {
   height: 25px;
 }
 
-h1 {
+.welcome {
   margin-top: 50px;
+}
+
+p {
+  font-size: 20px;
 }
