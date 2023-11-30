@@ -68,7 +68,7 @@ img {
 
 .welcome {
   margin-top: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 p {
@@ -77,6 +77,10 @@ p {
 }
 
 h1 {
+  text-align: center;
+}
+
+h2 {
   text-align: center;
 }
 
