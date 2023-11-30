@@ -67,7 +67,8 @@ img {
 }
 
 .welcome {
-  margin-top: 50px;
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 
 p {
