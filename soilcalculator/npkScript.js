@@ -37,6 +37,7 @@ let totalNitrogenCost;
 let totalPhosphorousCost;
 let totalPotassiumCost;
 
+let img = new Image();
 let finalTotalCost;
 let finalCrop;
 
@@ -236,27 +237,35 @@ function calculate() {
 
   if (finalCrop = "Wheat") {
     wheat();
+    document.getElementById("img").setAttribute("src", "/images/wheat.jpg");
   }
   else if (finalCrop = "Mustard") {
     mustard();
+    document.getElementById("img").setAttribute("src", "/images/mustard.jpg");
   }
   else if (finalCrop = "Chickpea") {
     chickpea();
+    document.getElementById("img").setAttribute("src", "/images/chickpea.jpg");
   }
   else if (finalCrop = "Barley") {
     barley();
+    document.getElementById("img").setAttribute("src", "/images/barley.jpg");
   }
   else if (finalCrop = "Rice") {
     rice();
+    document.getElementById("img").setAttribute("src", "/images/rice.jpg");
   }
   else if (finalCrop = "Maize") {
     maize();
+    document.getElementById("img").setAttribute("src", "/images/maize.jpg");
   }
   else if (finalCrop = "Sugarcane") {
     sugarcane();
+    document.getElementById("img").setAttribute("src", "/images/sugarcane.jpg");
   }
   else if (finalCrop = "Cotton") {
     cotton();
+    document.getElementById("img").setAttribute("src", "/images/cotton.jpg");
   }
 
   update();
