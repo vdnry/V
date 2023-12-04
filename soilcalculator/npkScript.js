@@ -209,7 +209,7 @@ function calculate() {
     }
   }
 
-  else if (season = "Kharif") {
+  else if (season == "Kharif") {
     rice();
     let val1 = totalCost;
     maize();
