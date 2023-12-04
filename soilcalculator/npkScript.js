@@ -195,16 +195,16 @@ function calculate() {
 
     finalTotalCost = Math.min(val1, val2, val3, val4);
 
-    if (finalTotalCost = val1) {
+    if (finalTotalCost == val1) {
       finalCrop = "Wheat";
     }
-    else if (finalTotalCost = val2) {
+    else if (finalTotalCost == val2) {
       finalCrop = "Mustard";
     }
-    else if (finalTotalCost = val3) {
+    else if (finalTotalCost == val3) {
       finalCrop = "Chickpea";
     }
-    else if (finalTotalCost = val4) {
+    else if (finalTotalCost == val4) {
       finalCrop = "Barley";
     }
   }
@@ -221,49 +221,49 @@ function calculate() {
 
     finalTotalCost = Math.min(val1, val2, val3, val4);
 
-    if (finalTotalCost = val1) {
+    if (finalTotalCost == val1) {
       finalCrop = "Rice";
     }
-    else if (finalTotalCost = val2) {
+    else if (finalTotalCost == val2) {
       finalCrop = "Maize";
     }
-    else if (finalTotalCost = val3) {
+    else if (finalTotalCost == val3) {
       finalCrop = "Sugarcane";
     }
-    else if (finalTotalCost = val4) {
+    else if (finalTotalCost == val4) {
       finalCrop = "Cotton";
     }
   }
 
-  if (finalCrop = "Wheat") {
+  if (finalCrop == "Wheat") {
     wheat();
     document.getElementById("img").setAttribute("src", "/images/wheat.jpg");
   }
-  else if (finalCrop = "Mustard") {
+  else if (finalCrop == "Mustard") {
     mustard();
     document.getElementById("img").setAttribute("src", "/images/mustard.jpg");
   }
-  else if (finalCrop = "Chickpea") {
+  else if (finalCrop == "Chickpea") {
     chickpea();
     document.getElementById("img").setAttribute("src", "/images/chickpea.jpg");
   }
-  else if (finalCrop = "Barley") {
+  else if (finalCrop == "Barley") {
     barley();
     document.getElementById("img").setAttribute("src", "/images/barley.jpg");
   }
-  else if (finalCrop = "Rice") {
+  else if (finalCrop == "Rice") {
     rice();
     document.getElementById("img").setAttribute("src", "/images/rice.jpg");
   }
-  else if (finalCrop = "Maize") {
+  else if (finalCrop == "Maize") {
     maize();
     document.getElementById("img").setAttribute("src", "/images/maize.jpg");
   }
-  else if (finalCrop = "Sugarcane") {
+  else if (finalCrop == "Sugarcane") {
     sugarcane();
     document.getElementById("img").setAttribute("src", "/images/sugarcane.jpg");
   }
-  else if (finalCrop = "Cotton") {
+  else if (finalCrop == "Cotton") {
     cotton();
     document.getElementById("img").setAttribute("src", "/images/cotton.jpg");
   }
