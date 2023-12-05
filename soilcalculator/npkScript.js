@@ -4,7 +4,7 @@ let state;
 let season;
 let landArea;
 let phInput;
-let moisture;
+let tds;
 let nitrogen;
 let phosphorous;
 let potassium;
@@ -32,6 +32,8 @@ let potassiumFertilizer;
 const fertilizerCostNitrogen = 60;
 const fertilizerCostPhosphorous = 110;
 const fertilizerCostPotassium = 100;
+const minValue = 0;
+const maxPhInput = 14;
 
 let totalNitrogenCost;
 let totalPhosphorousCost;
@@ -51,6 +53,9 @@ if (window.netlifyIdentity) {
 document.addEventListener("DOMContentLoaded", function () {
   var toolsDropdown = document.getElementById("tools-dropdown");
   var dropdownContent = document.getElementById("tools-dropdown-content");
+
+  //dateCheck();
+
   toolsDropdown.addEventListener("click", function (event) {
     dropdownContent.style.display =
       dropdownContent.style.display === "block" ? "none" : "block";
@@ -68,6 +73,42 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+/* function dateCheck() {
+  let date = new Date();
+  let formattedDate = date.toISOString().split("T")[0];
+  document.getElementById("date").value = formattedDate;
+  console.log(formattedDate);
+
+  let compareDateString = document.getElementById("date").value;
+  let compareDate = new Date(compareDateString)
+  if (compareDate >= "07-01" && compareDate <= "09-30") {
+    document.getElementById("season").value = "Kharif"
+  } else if (compareDate >= "10-01" && compareDate <= "03-31") {
+    document.getElementById("season").value = "Rabi"
+  } else {
+    document.getElementById("season").value = "Zaid"
+  }
+} 
+
+function selectedDateCheck() {
+  let compareDate = document.getElementById("date").value;
+  if (compareDate >= "01-07" && compareDate <= "30-09") {
+    document.getElementById("season").value = "Kharif"
+  } else if (compareDate >= "01-10" && compareDate <= "31-03") {
+    document.getElementById("season").value = "Rabi"
+  } else {
+    document.getElementById("season").value = "Zaid"
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var dateInput = document.getElementById("date");
+  dateInput.addEventListener("input", function () {
+    selectedDateCheck();
+  });
+}); */
+
+
 function userCheck() {
   if (!netlifyIdentity.currentUser()) {
     window.location.href = "https://khetguru.netlify.app";
@@ -75,6 +116,34 @@ function userCheck() {
 }
 document.addEventListener("DOMContentLoaded", userCheck);
 setInterval(userCheck, 2666);
+
+function phCheck() {
+  if (phInput >= 6.2 && phInput <= 7) {
+    document.getElementById("pH").textContent = "pH is ideal for crop growth."
+  } else if (phInput < 6.2 && phInput >= 5.3) {
+    document.getElementById("pH").textContent = "pH is slightly acidic, might affect produce."
+  } else if (phInput < 5.3) {
+    document.getElementById("pH").textContent = "pH is highly acidic, crop may fail."
+  } else if (phInput > 7 && phInput <= 8.5) {
+    document.getElementById("pH").textContent = "pH is slightly alkaline, might affect crop."
+  } else if (phInput > 8.5) {
+    document.getElementById("pH").textContent = "pH is highly alkaline, crop may fail."
+  }
+}
+
+function tdsCheck() {
+  if (tds >= 600 && tds <= 1000) {
+    document.getElementById("tds").textContent = "TDS value is ideal for crop growth."
+  } else if (tds < 600 && tds >= 200) {
+    document.getElementById("tds").textContent = "Low TDS value, might affect produce."
+  } else if (tds < 200) {
+    document.getElementById("tds").textContent = "TDS value is very low, crop may fail."
+  } else if (tds > 1000 && tds <= 2500) {
+    document.getElementById("tds").textContent = "High TDS value, might affect crop."
+  } else if (tds > 2500) {
+    document.getElementById("tds").textContent = "TDS value is very high, crop may fail."
+  }
+}
 
 function calculations() {
   idealNitrogenForLand = idealNitrogen * landArea;
@@ -86,16 +155,29 @@ function calculations() {
   totalPotassium = potassium * landArea;
 
   nitrogenDifference = idealNitrogenForLand - totalNitrogen;
+  if (nitrogenDifference < 0) {
+    nitrogenDifference = 0;
+  }
   phosphorousDifference = idealPhosphorousForLand - totalPhosphorous;
+  if (phosphorousDifference < 0) {
+    phosphorousDifference = 0;
+  }
   potassiumDifference = idealPotassiumForLand - totalPotassium;
-  
+  if (potassiumDifference < 0) {
+    potassiumDifference = 0;
+  }
+
   nitrogenFertilizer = nitrogenDifference / 0.46;
   phosphorousFertilizer = phosphorousDifference / 0.46;
   potassiumFertilizer = potassiumDifference / 0.5;
 
   totalNitrogenCost = Math.round(nitrogenFertilizer * fertilizerCostNitrogen);
-  totalPhosphorousCost = Math.round(phosphorousFertilizer * fertilizerCostPhosphorous);
-  totalPotassiumCost = Math.round(potassiumFertilizer * fertilizerCostPotassium);
+  totalPhosphorousCost = Math.round(
+    phosphorousFertilizer * fertilizerCostPhosphorous
+  );
+  totalPotassiumCost = Math.round(
+    potassiumFertilizer * fertilizerCostPotassium
+  );
   totalCost = totalNitrogenCost + totalPhosphorousCost + totalPotassiumCost;
 }
 
@@ -158,16 +240,21 @@ function cotton() {
 function update() {
   document.getElementById("finalCrop").textContent = finalCrop;
 
+  phCheck();
+  tdsCheck();
+
   document.getElementById("idealNitrogen").value = idealNitrogen;
   document.getElementById("idealPhosphorous").value = idealPhosphorous;
   document.getElementById("idealPotassium").value = idealPotassium;
 
   document.getElementById("nitrogenDifference").value = nitrogenDifference;
-  document.getElementById("phosphorousDifference").value = phosphorousDifference;
+  document.getElementById("phosphorousDifference").value =
+    phosphorousDifference;
   document.getElementById("potassiumDifference").value = potassiumDifference;
 
   document.getElementById("nitrogenFertilizer").value = nitrogenFertilizer;
-  document.getElementById("phosphorousFertilizer").value = phosphorousFertilizer;
+  document.getElementById("phosphorousFertilizer").value =
+    phosphorousFertilizer;
   document.getElementById("potassiumFertilizer").value = potassiumFertilizer;
 
   document.getElementById("totalNitrogenCost").value = totalNitrogenCost;
@@ -176,32 +263,62 @@ function update() {
 
   document.getElementById("totalCost").value = finalTotalCost;
 
-  document.getElementById("displayNitrogenDifference").textContent = nitrogenDifference;
-  document.getElementById("displayPhosphorousDifference").textContent = phosphorousDifference;
-  document.getElementById("displayPotassiumDifference").textContent = potassiumDifference;
+  document.getElementById("displayNitrogenDifference").textContent =
+    nitrogenDifference;
+  document.getElementById("displayPhosphorousDifference").textContent =
+    phosphorousDifference;
+  document.getElementById("displayPotassiumDifference").textContent =
+    potassiumDifference;
 
-  document.getElementById("displayNitrogenFertilizer").textContent = Math.round(nitrogenFertilizer);
-  document.getElementById("displayPhosphorousFertilizer").textContent = Math.round(phosphorousFertilizer);
-  document.getElementById("displayPotassiumFertilizer").textContent = Math.round(potassiumFertilizer);
+  document.getElementById("displayNitrogenFertilizer").textContent =
+    Math.round(nitrogenFertilizer);
+  document.getElementById("displayPhosphorousFertilizer").textContent =
+    Math.round(phosphorousFertilizer);
+  document.getElementById("displayPotassiumFertilizer").textContent =
+    Math.round(potassiumFertilizer);
 
-  document.getElementById("displayTotalNitrogenCost").textContent = Math.round(totalNitrogenCost);
-  document.getElementById("displayTotalPhosphorousCost").textContent = Math.round(totalPhosphorousCost);
-  document.getElementById("displayTotalPotassiumCost").textContent = Math.round(totalPotassiumCost);
+  document.getElementById("displayTotalNitrogenCost").textContent =
+    Math.round(totalNitrogenCost);
+  document.getElementById("displayTotalPhosphorousCost").textContent =
+    Math.round(totalPhosphorousCost);
+  document.getElementById("displayTotalPotassiumCost").textContent =
+    Math.round(totalPotassiumCost);
 
-  document.getElementById("displayTotalCost").textContent = Math.round(finalTotalCost);
+  document.getElementById("displayTotalCost").textContent =
+    Math.round(finalTotalCost);
 
   document.getElementById("resultsContainer").style.display = "block";
 }
 
-function calculate() {
+function sub() {
   //state = document.getElementById("state").value;
   season = document.getElementById("season").value;
   landArea = parseFloat(document.getElementById("landArea").value);
   phInput = parseFloat(document.getElementById("phInput").value);
-  moisture = parseFloat(document.getElementById("moisture").value);
+  tds = parseFloat(document.getElementById("tdsInput").value);
   nitrogen = parseFloat(document.getElementById("nitrogen").value);
   phosphorous = parseFloat(document.getElementById("phosphorous").value);
   potassium = parseFloat(document.getElementById("potassium").value);
+
+  if (
+    season == "Select cropping season" ||
+    isNaN(landArea) ||
+    landArea < minValue ||
+    isNaN(phInput) ||
+    phInput < minValue ||
+    phInput > maxPhInput ||
+    isNaN(tds) ||
+    tds < minValue ||
+    isNaN(nitrogen) ||
+    nitrogen < minValue ||
+    isNaN(phosphorous) ||
+    phosphorous < minValue ||
+    isNaN(potassium) ||
+    potassium < minValue
+  ) {
+    alert("Please fill in all required fields with valid values.");
+    return; // Stop further execution if validation fails
+  }
 
   if (season == "Rabi") {
     wheat();
@@ -217,19 +334,14 @@ function calculate() {
 
     if (finalTotalCost == val1) {
       finalCrop = "Wheat";
-    }
-    else if (finalTotalCost == val2) {
+    } else if (finalTotalCost == val2) {
       finalCrop = "Mustard";
-    }
-    else if (finalTotalCost == val3) {
+    } else if (finalTotalCost == val3) {
       finalCrop = "Chickpea";
-    }
-    else if (finalTotalCost == val4) {
+    } else if (finalTotalCost == val4) {
       finalCrop = "Barley";
     }
-  }
-
-  else if (season == "Kharif") {
+  } else if (season == "Kharif") {
     rice();
     let val1 = totalCost;
     maize();
@@ -243,14 +355,11 @@ function calculate() {
 
     if (finalTotalCost == val1) {
       finalCrop = "Rice";
-    }
-    else if (finalTotalCost == val2) {
+    } else if (finalTotalCost == val2) {
       finalCrop = "Maize";
-    }
-    else if (finalTotalCost == val3) {
+    } else if (finalTotalCost == val3) {
       finalCrop = "Sugarcane";
-    }
-    else if (finalTotalCost == val4) {
+    } else if (finalTotalCost == val4) {
       finalCrop = "Cotton";
     }
   }
@@ -258,32 +367,25 @@ function calculate() {
   if (finalCrop == "Wheat") {
     wheat();
     document.getElementById("img").setAttribute("src", "/images/wheat.jpg");
-  }
-  else if (finalCrop == "Mustard") {
+  } else if (finalCrop == "Mustard") {
     mustard();
     document.getElementById("img").setAttribute("src", "/images/mustard.jpg");
-  }
-  else if (finalCrop == "Chickpea") {
+  } else if (finalCrop == "Chickpea") {
     chickpea();
     document.getElementById("img").setAttribute("src", "/images/chickpea.jpg");
-  }
-  else if (finalCrop == "Barley") {
+  } else if (finalCrop == "Barley") {
     barley();
     document.getElementById("img").setAttribute("src", "/images/barley.jpg");
-  }
-  else if (finalCrop == "Rice") {
+  } else if (finalCrop == "Rice") {
     rice();
     document.getElementById("img").setAttribute("src", "/images/rice.jpg");
-  }
-  else if (finalCrop == "Maize") {
+  } else if (finalCrop == "Maize") {
     maize();
     document.getElementById("img").setAttribute("src", "/images/maize.jpg");
-  }
-  else if (finalCrop == "Sugarcane") {
+  } else if (finalCrop == "Sugarcane") {
     sugarcane();
     document.getElementById("img").setAttribute("src", "/images/sugarcane.jpg");
-  }
-  else if (finalCrop == "Cotton") {
+  } else if (finalCrop == "Cotton") {
     cotton();
     document.getElementById("img").setAttribute("src", "/images/cotton.jpg");
   }
