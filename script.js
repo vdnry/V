@@ -34,11 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("tools-dropdown").textContent = "उपकरण";
       document.getElementById("soilcalculatorlink").textContent = "मृदा कैलकुलेटर";
       document.getElementById("forumlink").textContent = "खेतू फोरम";
-      let log = document.getElementById("log");
       if (window.netlifyIdentity) {
-        log.textContent = "लॉग आउट";
+        document.getElementsByClassName("netlify-identity-button")[0].innerHTML = "लॉग आउट";
       } else {
-        log.textContent = "लॉग इन";
+        document.getElementsByClassName("netlify-identity-button")[0].textContent = "लॉग इन";
       }
       hindi.textContent = "See in English";
       document.getElementById("heading1").textContent = "खेतगुरु में आपका स्वागत है";
@@ -64,11 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("tools-dropdown").textContent = "Tools";
       document.getElementById("soilcalculatorlink").textContent = "Soil Calculator";
       document.getElementById("forumlink").textContent = "Khetu Forum";
-      let log = document.getElementById("log");
       if (window.netlifyIdentity) {
-        log.textContent = "Log out";
+        document.getElementsByClassName("netlify-identity-button")[0].textContent = "Log out";
       } else {
-        log.textContent = "Log in";
+        document.getElementsByClassName("netlify-identity-button")[0].textContent = "Log in";
       }
       hindi.textContent = "हिंदी में देखें";
       document.getElementById("heading1").textContent = "Welcome to KhetGuru";
