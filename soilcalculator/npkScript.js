@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var toolsDropdown = document.getElementById("tools-dropdown");
   var dropdownContent = document.getElementById("tools-dropdown-content");
 
-  //dateCheck();
+  dateCheck();
 
   toolsDropdown.addEventListener("click", function (event) {
     dropdownContent.style.display =
@@ -81,40 +81,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-/* function dateCheck() {
-  let date = new Date();
-  let formattedDate = date.toISOString().split("T")[0];
-  document.getElementById("date").value = formattedDate;
-  console.log(formattedDate);
-
-  let compareDateString = document.getElementById("date").value;
-  let compareDate = new Date(compareDateString)
-  if (compareDate >= "07-01" && compareDate <= "09-30") {
+function dateCheck() {
+  if (month >= 6 && month <= 10) {
     document.getElementById("season").value = "Kharif"
-  } else if (compareDate >= "10-01" && compareDate <= "03-31") {
+  } else if (month >= 11 && month <= 12 || month <= 5) {
     document.getElementById("season").value = "Rabi"
   } else {
     document.getElementById("season").value = "Zaid"
   }
 } 
-
-function selectedDateCheck() {
-  let compareDate = document.getElementById("date").value;
-  if (compareDate >= "01-07" && compareDate <= "30-09") {
-    document.getElementById("season").value = "Kharif"
-  } else if (compareDate >= "01-10" && compareDate <= "31-03") {
-    document.getElementById("season").value = "Rabi"
-  } else {
-    document.getElementById("season").value = "Zaid"
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  var dateInput = document.getElementById("date");
-  dateInput.addEventListener("input", function () {
-    selectedDateCheck();
-  });
-}); */
 
 
 function userCheck() {
@@ -299,7 +274,7 @@ function update() {
 }
 
 function sub() {
-  //state = document.getElementById("state").value;
+  state = document.getElementById("state").value;
   season = document.getElementById("season").value;
   landArea = parseFloat(document.getElementById("landArea").value);
   phInput = parseFloat(document.getElementById("phInput").value);
