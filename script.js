@@ -23,3 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+var hindi = document.getElementById("hindiButton");
+
+function handleClick(event) {
+    event.preventDefault();
+    hindi.innerHTML = "See in English";
+  }
+
+hindi.addEventListener('click', handleClick);
+});
