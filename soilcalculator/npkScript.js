@@ -34,6 +34,13 @@ const fertilizerCostPhosphorous = 110;
 const fertilizerCostPotassium = 100;
 const minValue = 0;
 const maxPhInput = 14;
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let currentDate = `${day}-${month}-${year}`;
+console.log(currentDate);
 
 let totalNitrogenCost;
 let totalPhosphorousCost;
@@ -47,6 +54,7 @@ if (window.netlifyIdentity) {
   window.netlifyIdentity.on("login", (user) => {
     userEmail = user.email;
     document.getElementById("email").value = userEmail;
+    document.getElementById("date").value = currentDate;
   });
 }
 
