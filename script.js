@@ -22,15 +22,75 @@ document.addEventListener("DOMContentLoaded", function () {
       dropdownContent.style.display = "none";
     }
   });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-var hindi = document.getElementById("hindiButton");
+  var buttonClick = false;
+  var hindi = document.getElementById("hindiButton");
 
-function handleClick(event) {
-    event.preventDefault();
-    hindi.innerHTML = "See in English";
+  function handleClick(event) {
+    if (buttonClick == false) {
+      event.preventDefault();
+      document.getElementById("title").textContent = "खेतगुरु";
+      document.getElementById("home").textContent = "होम";
+      document.getElementById("tools-dropdown").textContent = "उपकरण";
+      document.getElementById("soilcalculatorlink").textContent = "मृदा कैलकुलेटर";
+      document.getElementById("forumlink").textContent = "खेतू फोरम";
+      let log = document.getElementById("log");
+      if (window.netlifyIdentity) {
+        log.textContent = "लॉग आउट";
+      } else {
+        log.textContent = "लॉग इन";
+      }
+      hindi.textContent = "See in English";
+      document.getElementById("heading1").textContent = "खेतगुरु में आपका स्वागत है";
+      document.getElementById("heading2").textContent = "कृपया जारी रखने के लिए लॉगिन या साइनअप करें";
+      document.getElementById("para1").textContent =
+      `खेतगुरु एप्लिकेशन एक प्रवर्तनकारी कृषि परियोजना होगी जो प्रौद्योगिकी और समुदाय
+        समर्थन के समक्ष कृषि अभ्यास को सुधारने का उद्दीपक होगा। यह नवाचारी पहल सोइल सेंसर,
+        डेटा विश्लेषण, और एक समुदाय-निर्मित मोबाइल एप्लिकेशन को एक साथ लाने के माध्यम से
+        फसल का चयन करने और किसानों के बीच ज्ञान साझा करने को बढ़ावा देने का काम करेगी।`;
+      document.getElementById("para2").textContent =
+      `अब अनुमान नहीं। अब अनिश्चितता नहीं। खेतगुरु आपके स्थान, वर्ष के समय, और स्थानीय
+        जलवायु को ध्यान में रखकर आपको आपकी विशिष्ट परिस्थितियों में सबसे अच्छी तरह से फलने 
+        वाली फसलों के लिए अनुकूलित सिफारिशें प्रदान करता है। लेकिन यह यहाँ रुकता नहीं है। 
+        खेतगुरु एक कदम आगे जाता है, आपके आवश्यकतानुसार उर्वरक की ठीक मात्रा की गणना 
+        करता है और संबंधित लागत का अनुमान लगाता है।`;
+      document.getElementById("para3").textContent =
+      `खेतगुरु के साथ, आप सिर्फ कृषि नहीं कर रहे; आप स्मार्ट कृषि कर रहे हैं।`;
+      buttonClick = true;
+    } else {
+      event.preventDefault();
+      document.getElementById("title").textContent = "KhetGuru";
+      document.getElementById("home").textContent = "Home";
+      document.getElementById("tools-dropdown").textContent = "Tools";
+      document.getElementById("soilcalculatorlink").textContent = "Soil Calculator";
+      document.getElementById("forumlink").textContent = "Khetu Forum";
+      let log = document.getElementById("log");
+      if (window.netlifyIdentity) {
+        log.textContent = "Log out";
+      } else {
+        log.textContent = "Log in";
+      }
+      hindi.textContent = "हिंदी में देखें";
+      document.getElementById("heading1").textContent = "Welcome to KhetGuru";
+      document.getElementById("heading2").textContent = "Please login or signup to continue";
+      document.getElementById("para1").textContent =
+      `KhetGuru App will be a pioneering agricultural project to transform
+        farming practices through the integration of technology and community
+        support. This innovative initiative combines soil sensors, data
+        analytics, and a community-driven mobile application to optimise crop
+        selection and promote knowledge sharing among farmers.`
+      document.getElementById("para2").textContent =
+      `No more guesswork. No more uncertainty. KhetGuru takes into account
+        your location, the time of year, and the local climate, offering
+        tailored recommendations for crops that are most likely to thrive in
+        your specific conditions. But it doesn't stop there. KhetGuru goes a
+        step further, calculating the precise amount of fertilizer you'll need
+        and even estimating the associated costs.`
+      document.getElementById("para3").textContent =
+      `With KhetGuru, you're not just farming; you're farming smart.`
+      buttonClick = false;
+    }
   }
 
-hindi.addEventListener('click', handleClick);
+  hindi.addEventListener("click", handleClick);
 });
