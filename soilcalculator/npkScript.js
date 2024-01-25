@@ -1,6 +1,6 @@
 let userEmail;
 
-let state;
+//let state;
 let season;
 let landArea;
 let phInput;
@@ -97,7 +97,6 @@ function userCheck() {
     window.location.href = "https://khetguru.netlify.app";
   }
 }
-document.addEventListener("DOMContentLoaded", userCheck);
 setInterval(userCheck, 2666);
 
 function phCheck() {
@@ -274,14 +273,7 @@ function update() {
 }
 
 function sub() {
-  state = document.getElementById("state").value;
-  season = document.getElementById("season").value;
-  landArea = parseFloat(document.getElementById("landArea").value);
-  phInput = parseFloat(document.getElementById("phInput").value);
-  tds = parseFloat(document.getElementById("tdsInput").value);
-  nitrogen = parseFloat(document.getElementById("nitrogen").value);
-  phosphorous = parseFloat(document.getElementById("phosphorous").value);
-  potassium = parseFloat(document.getElementById("potassium").value);
+  initialiseValues();
 
   if (
     season == "Select cropping season" ||
@@ -374,4 +366,15 @@ function sub() {
   }
 
   update();
+}
+
+function initialiseValues() {
+  //state = document.getElementById("state").value;
+  season = document.getElementById("season").value;
+  landArea = parseFloat(document.getElementById("landArea").value);
+  phInput = parseFloat(document.getElementById("phInput").value);
+  tds = parseFloat(document.getElementById("tdsInput").value);
+  nitrogen = parseFloat(document.getElementById("nitrogen").value);
+  phosphorous = parseFloat(document.getElementById("phosphorous").value);
+  potassium = parseFloat(document.getElementById("potassium").value);
 }

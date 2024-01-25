@@ -35,7 +35,7 @@
     <input type="text" id="email" name="email" class="form-control" readonly required />
     <br><br>
 
-    <label for="state">State:</label>
+    <!--<label for="state">State:</label>
     <select name="state" id="state" class="form-control" required>
       <option id="" disabled selected>Select your state</option>
       <option id="Andhra Pradesh">Andhra Pradesh</option>
@@ -75,14 +75,10 @@
       <option id="Uttarakhand">Uttarakhand</option>
       <option id="West Bengal">West Bengal</option>
     </select>
-    <br><br>
+    <br><br>-->
 
     <label for="date">Date:</label>
     <input type="text" id="date" name="date" readonly required>
-    <br><br>
-
-    <label for="season">Season:</label>
-    <input name="season" id="season" required readonly>
     <br><br>
 
     <label for="landArea">Land area (in hectares):</label>
@@ -112,6 +108,8 @@
     <button type="button" onclick="sub()">Check requirements</button>
     <br><br>
 
+    
+    <input type="hidden" name="season" id="season" required readonly>
     <input type="hidden" id="idealNitrogen" name="idealNitrogen" />
     <input type="hidden" id="idealPhosphorous" name="idealPhosphorous" />
     <input type="hidden" id="idealPotassium" name="idealPotassium" />
