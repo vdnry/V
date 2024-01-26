@@ -37,5 +37,6 @@ if (mysqli_connect_error()) {
     $stmt = $conn->prepare($INSERT);
     $stmt->bind_param("sssiiiiiisiiiiiiiiiiiii", $email, $selectedState, $currentDate, $landArea, $phInput, $tdsInput, $nitrogen, $phosphorous, $potassium, $season, $idealNitrogen, $idealPhosphourous, $idealPotassium, $nitrogenDifference, $phosphorousDifference, $potassiumDifference, $nitrogenFertilizer, $phosphorousFertilizer, $potassiumFertilizer, $totalNitrogenCost, $totalPhosphorousCost, $totalPotassiumCost, $totalCost);
     $stmt->execute();
+    echo "New record inserted sucessfully";
 }
 ?>
