@@ -33,7 +33,7 @@ $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname)
 if (mysqli_connect_error()) {
     die('Connect Error('.mysqli_connect_errno().')'.mysqli_connect_error());
 } else {
-    $INSERT = "INSERT Into register (email, selectedState, currentDate, landArea, phInput, tdsInput, nitrogen, phosphorous, potassium, season, idealNitrogen, idealPhosphourous, idealPotassium, nitrogenDifference, phosphorousDifference, potassiumDifference, nitrogenFertilizer, phosphorousFertilizer, potassiumFertilizer, totalNitrogenCost, totalPhosphorousCost, totalPotassiumCost, totalCost) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $INSERT = "INSERT Into history (email, selectedState, currentDate, landArea, phInput, tdsInput, nitrogen, phosphorous, potassium, season, idealNitrogen, idealPhosphourous, idealPotassium, nitrogenDifference, phosphorousDifference, potassiumDifference, nitrogenFertilizer, phosphorousFertilizer, potassiumFertilizer, totalNitrogenCost, totalPhosphorousCost, totalPotassiumCost, totalCost) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($INSERT);
     $stmt->bind_param("sssiiiiiisiiiiiiiiiiiii", $email, $selectedState, $currentDate, $landArea, $phInput, $tdsInput, $nitrogen, $phosphorous, $potassium, $season, $idealNitrogen, $idealPhosphourous, $idealPotassium, $nitrogenDifference, $phosphorousDifference, $potassiumDifference, $nitrogenFertilizer, $phosphorousFertilizer, $potassiumFertilizer, $totalNitrogenCost, $totalPhosphorousCost, $totalPotassiumCost, $totalCost)
     $stmt->execute();
