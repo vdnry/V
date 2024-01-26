@@ -1,6 +1,6 @@
 let userEmail;
 
-//let state;
+let state;
 let season;
 let landArea;
 let phInput;
@@ -234,10 +234,9 @@ function update() {
     phosphorousDifference;
   document.getElementById("potassiumDifference").value = potassiumDifference;
 
-  document.getElementById("nitrogenFertilizer").value = nitrogenFertilizer;
-  document.getElementById("phosphorousFertilizer").value =
-    phosphorousFertilizer;
-  document.getElementById("potassiumFertilizer").value = potassiumFertilizer;
+  document.getElementById("nitrogenFertilizer").value = Math.round(nitrogenFertilizer);
+  document.getElementById("phosphorousFertilizer").value = Math.round(phosphorousFertilizer);
+  document.getElementById("potassiumFertilizer").value = Math.round(potassiumFertilizer);
 
   document.getElementById("totalNitrogenCost").value = totalNitrogenCost;
   document.getElementById("totalPhosphorousCost").value = totalPhosphorousCost;
@@ -292,7 +291,7 @@ function sub() {
     potassium < minValue
   ) {
     alert("Please fill in all required fields with valid values.");
-    return; // Stop further execution if validation fails
+    return;
   }
 
   if (season == "Rabi") {
@@ -369,7 +368,7 @@ function sub() {
 }
 
 function initialiseValues() {
-  //state = document.getElementById("state").value;
+  state = document.getElementById("state").value;
   season = document.getElementById("season").value;
   landArea = parseFloat(document.getElementById("landArea").value);
   phInput = parseFloat(document.getElementById("phInput").value);
