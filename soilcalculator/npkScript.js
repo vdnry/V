@@ -1,6 +1,6 @@
 let userEmail;
 
-//let state;
+let state;
 let season;
 let landArea;
 let phInput;
@@ -292,7 +292,7 @@ function sub() {
     potassium < minValue
   ) {
     alert("Please fill in all required fields with valid values.");
-    return; // Stop further execution if validation fails
+    return;
   }
 
   if (season == "Rabi") {
@@ -369,7 +369,7 @@ function sub() {
 }
 
 function initialiseValues() {
-  //state = document.getElementById("state").value;
+  state = document.getElementById("state").value;
   season = document.getElementById("season").value;
   landArea = parseFloat(document.getElementById("landArea").value);
   phInput = parseFloat(document.getElementById("phInput").value);
