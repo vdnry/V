@@ -234,10 +234,9 @@ function update() {
     phosphorousDifference;
   document.getElementById("potassiumDifference").value = potassiumDifference;
 
-  document.getElementById("nitrogenFertilizer").value = math.round(nitrogenFertilizer);
-  document.getElementById("phosphorousFertilizer").value =
-  math.round(phosphorousFertilizer);
-  document.getElementById("potassiumFertilizer").value = math.round(potassiumFertilizer);
+  document.getElementById("nitrogenFertilizer").value = Math.round(nitrogenFertilizer);
+  document.getElementById("phosphorousFertilizer").value = Math.round(phosphorousFertilizer);
+  document.getElementById("potassiumFertilizer").value = Math.round(potassiumFertilizer);
 
   document.getElementById("totalNitrogenCost").value = totalNitrogenCost;
   document.getElementById("totalPhosphorousCost").value = totalPhosphorousCost;
