@@ -26,7 +26,7 @@ $totalCost = $_POST['totalCost'];
 $host = "sql6.freesqldatabase.com"; 
 $dbUsername = "sql6679871"
 $dbPassword = "myQxpzpPSb"
-$dbname = "history"
+$dbname = "sql6679871"
 
 $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname)
 
