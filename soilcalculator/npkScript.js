@@ -164,58 +164,58 @@ function calculations() {
 }
 
 function wheat() {
-  idealNitrogen = 120;
-  idealPhosphorous = 60;
-  idealPotassium = 40;
+  idealNitrogen = 240;
+  idealPhosphorous = 11;
+  idealPotassium = 140;
   calculations();
 }
 
 function mustard() {
-  idealNitrogen = 120;
-  idealPhosphorous = 60;
-  idealPotassium = 40;
+  idealNitrogen = 240;
+  idealPhosphorous = 11;
+  idealPotassium = 140;
   calculations();
 }
 
 function chickpea() {
-  idealNitrogen = 120;
-  idealPhosphorous = 60;
-  idealPotassium = 40;
+  idealNitrogen = 240;
+  idealPhosphorous = 11;
+  idealPotassium = 140;
   calculations();
 }
 
 function barley() {
-  idealNitrogen = 120;
-  idealPhosphorous = 60;
-  idealPotassium = 40;
+  idealNitrogen = 240;
+  idealPhosphorous = 11;
+  idealPotassium = 140;
   calculations();
 }
 
 function rice() {
-  idealNitrogen = 120;
-  idealPhosphorous = 60;
-  idealPotassium = 40;
+  idealNitrogen = 240;
+  idealPhosphorous = 11;
+  idealPotassium = 140;
   calculations();
 }
 
 function maize() {
-  idealNitrogen = 120;
-  idealPhosphorous = 60;
-  idealPotassium = 40;
+  idealNitrogen = 240;
+  idealPhosphorous = 11;
+  idealPotassium = 140;
   calculations();
 }
 
 function sugarcane() {
-  idealNitrogen = 120;
-  idealPhosphorous = 60;
-  idealPotassium = 40;
+  idealNitrogen = 240;
+  idealPhosphorous = 11;
+  idealPotassium = 140;
   calculations();
 }
 
 function cotton() {
-  idealNitrogen = 120;
-  idealPhosphorous = 60;
-  idealPotassium = 40;
+  idealNitrogen = 240;
+  idealPhosphorous = 11;
+  idealPotassium = 140;
   calculations();
 }
 
