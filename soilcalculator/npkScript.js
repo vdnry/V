@@ -114,16 +114,12 @@ function phCheck() {
 }
 
 function tdsCheck() {
-  if (tds >= 600 && tds <= 1000) {
-    document.getElementById("tds").textContent = "TDS value is ideal for crop growth."
-  } else if (tds < 600 && tds >= 200) {
-    document.getElementById("tds").textContent = "Low TDS value, might affect produce."
-  } else if (tds < 200) {
-    document.getElementById("tds").textContent = "TDS value is very low, crop may fail."
-  } else if (tds > 1000 && tds <= 2500) {
-    document.getElementById("tds").textContent = "High TDS value, might affect crop."
-  } else if (tds > 2500) {
-    document.getElementById("tds").textContent = "TDS value is very high, crop may fail."
+  if (tds >= 600 && tds <= 1024) {
+    document.getElementById("tds").textContent = "Soil is too dry. Irrigate well."
+  } else if (tds < 600 && tds >= 400) {
+    document.getElementById("tds").textContent = "Moisture is ideal for crop growth."
+  } else if (tds < 400) {
+    document.getElementById("tds").textContent = "Soil is too wet."
   }
 }
 
