@@ -29,168 +29,169 @@
     </nav>
   </header>
   <h1>Soil Calculator</h1>
-  <form action="insert.php" method="POST" name="SoilSensorValues">
-    <table>
+  <form name="SoilSensorValues" netlify>
 
-      <label for="email">Email:</label>
-      <input type="text" id="email" name="email" class="form-control" readonly required />
-      <br><br>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" class="form-control" readonly required />
+    <br><br>
 
-      <select name="selectedState" id="state" class="form-control" required hidden>
-        <option id="" disabled>Select your state</option>
-        <option id="Andhra Pradesh">Andhra Pradesh</option>
-        <option id="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-        <option id="Arunachal Pradesh">Arunachal Pradesh</option>
-        <option id="Assam">Assam</option>
-        <option id="Bihar">Bihar</option>
-        <option id="Chandigarh">Chandigarh</option>
-        <option id="Chhattisgarh">Chhattisgarh</option>
-        <option id="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-        <option id="Daman and Diu">Daman and Diu</option>
-        <option id="Delhi">Delhi</option>
-        <option id="Lakshadweep">Lakshadweep</option>
-        <option id="Puducherry">Puducherry</option>
-        <option id="Goa">Goa</option>
-        <option id="Gujarat">Gujarat</option>
-        <option id="Haryana" selected value="Haryana">Haryana</option>
-        <option id="Himachal Pradesh">Himachal Pradesh</option>
-        <option id="Jammu and Kashmir">Jammu and Kashmir</option>
-        <option id="Jharkhand">Jharkhand</option>
-        <option id="Karnataka">Karnataka</option>
-        <option id="Kerala">Kerala</option>
-        <option id="Madhya Pradesh">Madhya Pradesh</option>
-        <option id="Maharashtra">Maharashtra</option>
-        <option id="Manipur">Manipur</option>
-        <option id="Meghalaya">Meghalaya</option>
-        <option id="Mizoram">Mizoram</option>
-        <option id="Nagaland">Nagaland</option>
-        <option id="Odisha">Odisha</option>
-        <option id="Punjab">Punjab</option>
-        <option id="Rajasthan">Rajasthan</option>
-        <option id="Sikkim">Sikkim</option>
-        <option id="Tamil Nadu">Tamil Nadu</option>
-        <option id="Telangana">Telangana</option>
-        <option id="Tripura">Tripura</option>
-        <option id="Uttar Pradesh">Uttar Pradesh</option>
-        <option id="Uttarakhand">Uttarakhand</option>
-        <option id="West Bengal">West Bengal</option>
-      </select>
+    <!--<label for="state">State:</label>
+    <select name="state" id="state" class="form-control" required>
+      <option id="" disabled selected>Select your state</option>
+      <option id="Andhra Pradesh">Andhra Pradesh</option>
+      <option id="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+      <option id="Arunachal Pradesh">Arunachal Pradesh</option>
+      <option id="Assam">Assam</option>
+      <option id="Bihar">Bihar</option>
+      <option id="Chandigarh">Chandigarh</option>
+      <option id="Chhattisgarh">Chhattisgarh</option>
+      <option id="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+      <option id="Daman and Diu">Daman and Diu</option>
+      <option id="Delhi">Delhi</option>
+      <option id="Lakshadweep">Lakshadweep</option>
+      <option id="Puducherry">Puducherry</option>
+      <option id="Goa">Goa</option>
+      <option id="Gujarat">Gujarat</option>
+      <option id="Haryana">Haryana</option>
+      <option id="Himachal Pradesh">Himachal Pradesh</option>
+      <option id="Jammu and Kashmir">Jammu and Kashmir</option>
+      <option id="Jharkhand">Jharkhand</option>
+      <option id="Karnataka">Karnataka</option>
+      <option id="Kerala">Kerala</option>
+      <option id="Madhya Pradesh">Madhya Pradesh</option>
+      <option id="Maharashtra">Maharashtra</option>
+      <option id="Manipur">Manipur</option>
+      <option id="Meghalaya">Meghalaya</option>
+      <option id="Mizoram">Mizoram</option>
+      <option id="Nagaland">Nagaland</option>
+      <option id="Odisha">Odisha</option>
+      <option id="Punjab">Punjab</option>
+      <option id="Rajasthan">Rajasthan</option>
+      <option id="Sikkim">Sikkim</option>
+      <option id="Tamil Nadu">Tamil Nadu</option>
+      <option id="Telangana">Telangana</option>
+      <option id="Tripura">Tripura</option>
+      <option id="Uttar Pradesh">Uttar Pradesh</option>
+      <option id="Uttarakhand">Uttarakhand</option>
+      <option id="West Bengal">West Bengal</option>
+    </select>
+    <br><br>-->
 
-      <label for="date">Date:</label>
-      <input type="text" id="date" name="currentDate" readonly required>
-      <br><br>
+    <label for="date">Date:</label>
+    <input type="text" id="date" name="date" readonly required>
+    <br><br>
 
-      <label for="landArea">Land area (in hectares):</label>
-      <input type="number" id="landArea" name="landArea" min="0" step="0.01" required />
-      <br><br>
+    <label for="landArea">Land area (in hectares):</label>
+    <input type="number" id="landArea" name="landArea" min="0" step="0.01" required />
+    <br><br>
 
-      <label for="phInput">pH value of soil (0-14): </label>
-      <input type="number" id="phInput" name="phInput" min="0" max="14" step="0.1" required />
-      <br><br>
+    <label for="phInput">pH value of soil (0-14): </label>
+    <input type="number" id="phInput" name="phInput" min="0" max="14" step="0.1" required />
+    <br><br>
 
-      <label for="tdsInput">Soil TDS level (ppm):</label>
-      <input type="number" id="tdsInput" name="tdsInput" min="0" step="0.01" required />
-      <br><br>
+    <label for="tdsInput">Soil TDS level (ppm):</label>
+    <input type="number" id="tdsInput" name="tdsInput" min="0" step="0.01" required />
+    <br><br>
 
-      <label for="nitrogen">Available Nitrogen in soil (kg/ha):</label>
-      <input type="number" id="nitrogen" name="nitrogen" min="0" step="0.01" required />
-      <br><br>
+    <label for="nitrogen">Available Nitrogen in soil (kg/ha):</label>
+    <input type="number" id="nitrogen" name="nitrogen" min="0" step="0.01" required />
+    <br><br>
 
-      <label for="phosphorous">Available Phosphorous in soil (kg/ha):</label>
-      <input type="number" id="phosphorous" name="phosphorous" min="0" step="0.01" required />
-      <br><br>
+    <label for="phosphorous">Available Phosphorous in soil (kg/ha):</label>
+    <input type="number" id="phosphorous" name="phosphorous" min="0" step="0.01" required />
+    <br><br>
 
-      <label for="potassium">Available Potassium in soil (kg/ha):</label>
-      <input type="number" id="potassium" name="potassium" min="0" step="0.01" required />
-      <br><br>
+    <label for="potassium">Available Potassium in soil (kg/ha):</label>
+    <input type="number" id="potassium" name="potassium" min="0" step="0.01" required />
+    <br><br>
 
-      <button type="button" onclick="sub()">Check requirements</button>
-      <br><br>
+    <button type="button" onclick="sub()">Check requirements</button>
+    <br><br>
 
-      
-      <input type="hidden" name="season" id="season" required readonly>
-      <input type="hidden" id="idealNitrogen" name="idealNitrogen" />
-      <input type="hidden" id="idealPhosphorous" name="idealPhosphorous" />
-      <input type="hidden" id="idealPotassium" name="idealPotassium" />
+    
+    <input type="hidden" name="season" id="season" required readonly>
+    <input type="hidden" id="idealNitrogen" name="idealNitrogen" />
+    <input type="hidden" id="idealPhosphorous" name="idealPhosphorous" />
+    <input type="hidden" id="idealPotassium" name="idealPotassium" />
 
-      <input type="hidden" id="nitrogenDifference" name="nitrogenDifference" />
-      <input type="hidden" id="phosphorousDifference" name="phosphorousDifference" />
-      <input type="hidden" id="potassiumDifference" name="potassiumDifference" />
+    <input type="hidden" id="nitrogenDifference" name="nitrogenDifference" />
+    <input type="hidden" id="phosphorousDifference" name="phosphorousDifference" />
+    <input type="hidden" id="potassiumDifference" name="potassiumDifference" />
 
-      <input type="hidden" id="nitrogenFertilizer" name="nitrogenFertilizer" />
-      <input type="hidden" id="phosphorousFertilizer" name="phosphorousFertilizer" />
-      <input type="hidden" id="potassiumFertilizer" name="potassiumFertilizer" />
+    <input type="hidden" id="nitrogenFertilizer" name="nitrogenFertilizer" />
+    <input type="hidden" id="phosphorousFertilizer" name="phosphorousFertilizer" />
+    <input type="hidden" id="potassiumFertilizer" name="potassiumFertilizer" />
 
-      <input type="hidden" id="totalNitrogenCost" name="totalNitrogenCost" />
-      <input type="hidden" id="totalPhosphorousCost" name="totalPhosphorousCost" />
-      <input type="hidden" id="totalPotassiumCost" name="totalPotassiumCost" />
+    <input type="hidden" id="totalNitrogenCost" name="totalNitrogenCost" />
+    <input type="hidden" id="totalPhosphorousCost" name="totalPhosphorousCost" />
+    <input type="hidden" id="totalPotassiumCost" name="totalPotassiumCost" />
 
-      <input type="hidden" id="totalCost" name="totalCost" />
+    <input type="hidden" id="totalCost" name="totalCost" />
 
-      <div id="resultsContainer" style="display: none">
-        <h3>Calculated Results:</h3>
+    <div id="resultsContainer" style="display: none">
+      <h3>Calculated Results:</h3>
 
-        <p>
-          Recommended crop: <span id="finalCrop"></span>
-        </p>
+      <p>
+        Recommended crop: <span id="finalCrop"></span>
+      </p>
 
-        <img id="img">
+      <img id="img">
 
-        <p>
-          Total Nitrogen Deficit: <span id="displayNitrogenDifference"></span> kg
-        </p>
-        <p>
-          Total Phosphorous Deficit:
-          <span id="displayPhosphorousDifference"></span> kg
-        </p>
-        <p>
-          Total Potassium Deficit: <span id="displayPotassiumDifference"></span> kg
-        </p>
+      <p>
+        Total Nitrogen Deficit: <span id="displayNitrogenDifference"></span> kg
+      </p>
+      <p>
+        Total Phosphorous Deficit:
+        <span id="displayPhosphorousDifference"></span> kg
+      </p>
+      <p>
+        Total Potassium Deficit: <span id="displayPotassiumDifference"></span> kg
+      </p>
 
-        <p>
-          pH Check: <span id="pH"></span>
-        </p>
+      <p>
+        pH Check: <span id="pH"></span>
+      </p>
 
-        <p>
-          TDS Check: <span id="tds"></span>
-        </p>
+      <p>
+        TDS Check: <span id="tds"></span>
+      </p>
 
-        <p>
-          Nitrogen Fertilizer Requirement (46-0-0 fertilizer):
-          <span id="displayNitrogenFertilizer"></span> kg
-        </p>
-        <p>
-          Phosphorous Fertilizer Requirement (0-46-0 fertilizer):
-          <span id="displayPhosphorousFertilizer"></span> kg
-        </p>
-        <p>
-          Potassium Fertilizer Requirement (0-0-50 fertilizer):
-          <span id="displayPotassiumFertilizer"></span> kg
-        </p>
+      <p>
+        Nitrogen Fertilizer Requirement (46-0-0 fertilizer):
+        <span id="displayNitrogenFertilizer"></span> kg
+      </p>
+      <p>
+        Phosphorous Fertilizer Requirement (0-46-0 fertilizer):
+        <span id="displayPhosphorousFertilizer"></span> kg
+      </p>
+      <p>
+        Potassium Fertilizer Requirement (0-0-50 fertilizer):
+        <span id="displayPotassiumFertilizer"></span> kg
+      </p>
 
-        <p>
-          Nitrogen Fertilizer Cost: ₹<span id="displayTotalNitrogenCost"></span>
-        </p>
-        <p>
-          Phosphorous Fertilizer Cost: ₹<span id="displayTotalPhosphorousCost"></span>
-        </p>
-        <p>
-          Potassium Fertilizer Cost: ₹<span id="displayTotalPotassiumCost"></span>
-        </p>
+      <p>
+        Nitrogen Fertilizer Cost: ₹<span id="displayTotalNitrogenCost"></span>
+      </p>
+      <p>
+        Phosphorous Fertilizer Cost: ₹<span id="displayTotalPhosphorousCost"></span>
+      </p>
+      <p>
+        Potassium Fertilizer Cost: ₹<span id="displayTotalPotassiumCost"></span>
+      </p>
 
-        <p>
-          Estimated Seed Cost: ₹<span id="seedCost"></span>
-        </p>
+      <p>
+        Estimated Seed Cost: ₹<span id="seedCost"></span>
+      </p>
 
-        <p>Estimated Cost: ₹<span id="displayTotalCost"></span></p>
+      <p>Estimated Cost: ₹<span id="displayTotalCost"></span></p>
 
-        <input type="submit" value="Save results" />
-        <p>
-          (Due to technical issues we are currently not able to save the results
-          for later access for users, but we store them in our backend)
-        </p>
-      </div>
-    </table>  
+      <input type="submit" value="Save results" />
+      <p>
+        (Due to technical issues we are currently not able to save the results
+        for later access for users, but we store them in our backend)
+      </p>
+    </div>
+
   </form>
 
 </html>
