@@ -6,13 +6,42 @@ if (window.netlifyIdentity) {
 
 document.addEventListener("DOMContentLoaded", function () {
   var toolsDropdown = document.getElementById("tools-dropdown");
-  var dropdownContent = document.getElementById("tools-dropdown-content");
+  var toolsDropdownContent = document.getElementById("tools-dropdown-content");
+  var languageDropdown = document.getElementById("language-dropdown");
+  var languageDropdownContent = document.getElementById("language-dropdown-content");
   var hindi = document.getElementById("hindiButton");
   var buttonClick = false;
 
-  dropdown(toolsDropdown, dropdownContent);
+  toolsDropdown.addEventListener("click", function (event) {
+    toolsDropdownContent.style.display =
+      toolsDropdownContent.style.display === "block" ? "none" : "block";
+    event.stopPropagation();
+  });
+  
+  languageDropdown.addEventListener("click", function (event) {
+    languageDropdownContent.style.display =
+      languageDropdownContent.style.display === "block" ? "none" : "block";
+    event.stopPropagation();
+  });
 
   buttonClick = hindiButtonClickCheck(buttonClick, hindi);
+  document.addEventListener("click", function (event) {
+    var isClickInsideToolsDropdown =
+      toolsDropdown.contains(event.target) ||
+      toolsDropdownContent.contains(event.target);
+
+    if (!isClickInsideToolsDropdown) {
+      toolsDropdownContent.style.display = "none";
+    }
+
+    var isClickInsideLanguageDropdown =
+      languageDropdown.contains(event.target) ||
+      languageDropdownContent.contains(event.target);
+
+    if (!isClickInsideLanguageDropdown) {
+      languageDropdownContent.style.display = "none";
+    }
+  });
 });
 
 function hindiButtonClickCheck(buttonClick, hindi) {
@@ -25,28 +54,12 @@ function hindiButtonClickCheck(buttonClick, hindi) {
   return buttonClick;
 }
 
-function dropdown(toolsDropdown, dropdownContent) {
-  toolsDropdown.addEventListener("click", function (event) {
-    dropdownContent.style.display =
-      dropdownContent.style.display === "block" ? "none" : "block";
-    event.stopPropagation();
-  });
-
-  document.addEventListener("click", function (event) {
-    var isClickInsideDropdown = toolsDropdown.contains(event.target) ||
-      dropdownContent.contains(event.target);
-
-    if (!isClickInsideDropdown) {
-      dropdownContent.style.display = "none";
-    }
-  });
-}
-
 function changeToEnglish(event, hindi, buttonClick) {
   event.preventDefault();
   document.getElementById("title").textContent = "KhetGuru";
   document.getElementById("home").textContent = "Home";
   document.getElementById("tools-dropdown").textContent = "Tools";
+  document.getElementById("language-dropdown").textContent = "Change Language";
   document.getElementById("soilcalculatorlink").textContent = "Soil Calculator";
   document.getElementById("forumlink").textContent = "Khetu Forum";
   userCheckEnglish();
@@ -77,6 +90,7 @@ function changeToHindi(event, hindi, buttonClick) {
   document.getElementById("title").textContent = "खेतगुरु";
   document.getElementById("home").textContent = "होम";
   document.getElementById("tools-dropdown").textContent = "उपकरण";
+  document.getElementById("language-dropdown").textContent = "भाषा बदलें";
   document.getElementById("soilcalculatorlink").textContent = "मृदा कैलकुलेटर";
   document.getElementById("forumlink").textContent = "खेतू फोरम";
   userCheckHindi();

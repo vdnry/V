@@ -60,23 +60,39 @@ if (window.netlifyIdentity) {
 
 document.addEventListener("DOMContentLoaded", function () {
   var toolsDropdown = document.getElementById("tools-dropdown");
-  var dropdownContent = document.getElementById("tools-dropdown-content");
+  var toolsDropdownContent = document.getElementById("tools-dropdown-content");
+  var languageDropdown = document.getElementById("language-dropdown");
+  var languageDropdownContent = document.getElementById("language-dropdown-content");
 
   dateCheck();
 
   toolsDropdown.addEventListener("click", function (event) {
-    dropdownContent.style.display =
-      dropdownContent.style.display === "block" ? "none" : "block";
+    toolsDropdownContent.style.display =
+      toolsDropdownContent.style.display === "block" ? "none" : "block";
+    event.stopPropagation();
+  });
+  
+  languageDropdown.addEventListener("click", function (event) {
+    languageDropdownContent.style.display =
+      languageDropdownContent.style.display === "block" ? "none" : "block";
     event.stopPropagation();
   });
 
   document.addEventListener("click", function (event) {
-    var isClickInsideDropdown =
+    var isClickInsideToolsDropdown =
       toolsDropdown.contains(event.target) ||
-      dropdownContent.contains(event.target);
+      toolsDropdownContent.contains(event.target);
 
-    if (!isClickInsideDropdown) {
-      dropdownContent.style.display = "none";
+    if (!isClickInsideToolsDropdown) {
+      toolsDropdownContent.style.display = "none";
+    }
+
+    var isClickInsideLanguageDropdown =
+      languageDropdown.contains(event.target) ||
+      languageDropdownContent.contains(event.target);
+
+    if (!isClickInsideLanguageDropdown) {
+      languageDropdownContent.style.display = "none";
     }
   });
 });
