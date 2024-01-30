@@ -4,7 +4,7 @@ let userEmail;
 let season;
 let landArea;
 let phInput;
-let tds;
+let moisture;
 let nitrogen;
 let phosphorous;
 let potassium;
@@ -129,13 +129,13 @@ function phCheck() {
   }
 }
 
-function tdsCheck() {
-  if (tds >= 600 && tds <= 1024) {
-    document.getElementById("tds").textContent = "Soil is too dry. Irrigate well."
-  } else if (tds < 600 && tds >= 400) {
-    document.getElementById("tds").textContent = "Moisture is ideal for crop growth."
-  } else if (tds < 400) {
-    document.getElementById("tds").textContent = "Soil is too wet."
+function moistureCheck() {
+  if (moisture >= 600 && moisture <= 1024) {
+    document.getElementById("moisture").textContent = "Soil is too dry. Irrigate well."
+  } else if (moisture < 600 && moisture >= 400) {
+    document.getElementById("moisture").textContent = "Moisture is ideal for crop growth."
+  } else if (moisture < 400) {
+    document.getElementById("moisture").textContent = "Soil is too wet."
   }
 }
 
@@ -235,7 +235,7 @@ function update() {
   document.getElementById("finalCrop").textContent = finalCrop;
 
   phCheck();
-  tdsCheck();
+  moistureCheck();
 
   document.getElementById("idealNitrogen").value = idealNitrogen;
   document.getElementById("idealPhosphorous").value = idealPhosphorous;
@@ -294,8 +294,8 @@ function sub() {
     isNaN(phInput) ||
     phInput < minValue ||
     phInput > maxPhInput ||
-    isNaN(tds) ||
-    tds < minValue ||
+    isNaN(moisture) ||
+    moisture < minValue ||
     isNaN(nitrogen) ||
     nitrogen < minValue ||
     isNaN(phosphorous) ||
@@ -385,7 +385,7 @@ function initialiseValues() {
   season = document.getElementById("season").value;
   landArea = parseFloat(document.getElementById("landArea").value);
   phInput = parseFloat(document.getElementById("phInput").value);
-  tds = parseFloat(document.getElementById("tdsInput").value);
+  moisture = parseFloat(document.getElementById("moistureInput").value);
   nitrogen = parseFloat(document.getElementById("nitrogen").value);
   phosphorous = parseFloat(document.getElementById("phosphorous").value);
   potassium = parseFloat(document.getElementById("potassium").value);
