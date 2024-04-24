@@ -4,7 +4,7 @@ let state;
 let season;
 let landArea;
 let phInput;
-let moisture;
+let tds;
 let nitrogen;
 let phosphorous;
 let potassium;
@@ -60,39 +60,23 @@ if (window.netlifyIdentity) {
 
 document.addEventListener("DOMContentLoaded", function () {
   var toolsDropdown = document.getElementById("tools-dropdown");
-  var toolsDropdownContent = document.getElementById("tools-dropdown-content");
-  var languageDropdown = document.getElementById("language-dropdown");
-  var languageDropdownContent = document.getElementById("language-dropdown-content");
+  var dropdownContent = document.getElementById("tools-dropdown-content");
 
   dateCheck();
 
   toolsDropdown.addEventListener("click", function (event) {
-    toolsDropdownContent.style.display =
-      toolsDropdownContent.style.display === "block" ? "none" : "block";
-    event.stopPropagation();
-  });
-  
-  languageDropdown.addEventListener("click", function (event) {
-    languageDropdownContent.style.display =
-      languageDropdownContent.style.display === "block" ? "none" : "block";
+    dropdownContent.style.display =
+      dropdownContent.style.display === "block" ? "none" : "block";
     event.stopPropagation();
   });
 
   document.addEventListener("click", function (event) {
-    var isClickInsideToolsDropdown =
+    var isClickInsideDropdown =
       toolsDropdown.contains(event.target) ||
-      toolsDropdownContent.contains(event.target);
+      dropdownContent.contains(event.target);
 
-    if (!isClickInsideToolsDropdown) {
-      toolsDropdownContent.style.display = "none";
-    }
-
-    var isClickInsideLanguageDropdown =
-      languageDropdown.contains(event.target) ||
-      languageDropdownContent.contains(event.target);
-
-    if (!isClickInsideLanguageDropdown) {
-      languageDropdownContent.style.display = "none";
+    if (!isClickInsideDropdown) {
+      dropdownContent.style.display = "none";
     }
   });
 });
@@ -129,13 +113,17 @@ function phCheck() {
   }
 }
 
-function moistureCheck() {
-  if (moisture >= 600 && moisture <= 1024) {
-    document.getElementById("moisture").textContent = "Soil is too dry. Irrigate well."
-  } else if (moisture < 600 && moisture >= 400) {
-    document.getElementById("moisture").textContent = "Moisture is ideal for crop growth."
-  } else if (moisture < 400) {
-    document.getElementById("moisture").textContent = "Soil is too wet."
+function tdsCheck() {
+  if (tds >= 600 && tds <= 1000) {
+    document.getElementById("tds").textContent = "TDS value is ideal for crop growth."
+  } else if (tds < 600 && tds >= 200) {
+    document.getElementById("tds").textContent = "Low TDS value, might affect produce."
+  } else if (tds < 200) {
+    document.getElementById("tds").textContent = "TDS value is very low, crop may fail."
+  } else if (tds > 1000 && tds <= 2500) {
+    document.getElementById("tds").textContent = "High TDS value, might affect crop."
+  } else if (tds > 2500) {
+    document.getElementById("tds").textContent = "TDS value is very high, crop may fail."
   }
 }
 
@@ -176,58 +164,58 @@ function calculations() {
 }
 
 function wheat() {
-  idealNitrogen = 240;
-  idealPhosphorous = 11;
-  idealPotassium = 140;
+  idealNitrogen = 120;
+  idealPhosphorous = 60;
+  idealPotassium = 40;
   calculations();
 }
 
 function mustard() {
-  idealNitrogen = 240;
-  idealPhosphorous = 11;
-  idealPotassium = 140;
+  idealNitrogen = 120;
+  idealPhosphorous = 60;
+  idealPotassium = 40;
   calculations();
 }
 
 function chickpea() {
-  idealNitrogen = 240;
-  idealPhosphorous = 11;
-  idealPotassium = 140;
+  idealNitrogen = 120;
+  idealPhosphorous = 60;
+  idealPotassium = 40;
   calculations();
 }
 
 function barley() {
-  idealNitrogen = 240;
-  idealPhosphorous = 11;
-  idealPotassium = 140;
+  idealNitrogen = 120;
+  idealPhosphorous = 60;
+  idealPotassium = 40;
   calculations();
 }
 
 function rice() {
-  idealNitrogen = 240;
-  idealPhosphorous = 11;
-  idealPotassium = 140;
+  idealNitrogen = 120;
+  idealPhosphorous = 60;
+  idealPotassium = 40;
   calculations();
 }
 
 function maize() {
-  idealNitrogen = 240;
-  idealPhosphorous = 11;
-  idealPotassium = 140;
+  idealNitrogen = 120;
+  idealPhosphorous = 60;
+  idealPotassium = 40;
   calculations();
 }
 
 function sugarcane() {
-  idealNitrogen = 240;
-  idealPhosphorous = 11;
-  idealPotassium = 140;
+  idealNitrogen = 120;
+  idealPhosphorous = 60;
+  idealPotassium = 40;
   calculations();
 }
 
 function cotton() {
-  idealNitrogen = 240;
-  idealPhosphorous = 11;
-  idealPotassium = 140;
+  idealNitrogen = 120;
+  idealPhosphorous = 60;
+  idealPotassium = 40;
   calculations();
 }
 
@@ -235,7 +223,7 @@ function update() {
   document.getElementById("finalCrop").textContent = finalCrop;
 
   phCheck();
-  moistureCheck();
+  tdsCheck();
 
   document.getElementById("idealNitrogen").value = idealNitrogen;
   document.getElementById("idealPhosphorous").value = idealPhosphorous;
@@ -293,8 +281,8 @@ function sub() {
     isNaN(phInput) ||
     phInput < minValue ||
     phInput > maxPhInput ||
-    isNaN(moisture) ||
-    moisture < minValue ||
+    isNaN(tds) ||
+    tds < minValue ||
     isNaN(nitrogen) ||
     nitrogen < minValue ||
     isNaN(phosphorous) ||
@@ -384,7 +372,7 @@ function initialiseValues() {
   season = document.getElementById("season").value;
   landArea = parseFloat(document.getElementById("landArea").value);
   phInput = parseFloat(document.getElementById("phInput").value);
-  moisture = parseFloat(document.getElementById("moistureInput").value);
+  tds = parseFloat(document.getElementById("tdsInput").value);
   nitrogen = parseFloat(document.getElementById("nitrogen").value);
   phosphorous = parseFloat(document.getElementById("phosphorous").value);
   potassium = parseFloat(document.getElementById("potassium").value);

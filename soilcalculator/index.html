@@ -23,13 +23,7 @@
             <li><a href="/forum/">Khetu Forum</a></li>
           </ul>
         </li>
-        <li class="right">
-          <a id="language-dropdown" style="cursor: pointer;">Change language</a>
-          <ul id="language-dropdown-content" class="dropdown-content">
-            <li><a id="hindiButton" href="#">हिंदी में देखें</a></li>
-            <li><a id="bengaliButton" href="#">বাংলায় দেখুন</a></li>
-          </ul>
-        </li>
+        <li class="right"><a href="#">हिंदी में देखें</a></li>
         <li class="right"><a data-netlify-identity-button></a></li>
       </ul>
     </nav>
@@ -94,21 +88,21 @@
       <input type="number" id="phInput" name="phInput" min="0" max="14" step="0.1" required />
       <br><br>
 
-    <label for="moistureInput">Soil Moisture Level (analog):</label>
-    <input type="number" id="moistureInput" name="moistureInput" min="0" step="0.01" required />
-    <br><br>
+      <label for="tdsInput">Soil TDS level (ppm):</label>
+      <input type="number" id="tdsInput" name="tdsInput" min="0" step="0.01" required />
+      <br><br>
 
-    <label for="nitrogen">Available Nitrogen in soil (mg/kg):</label>
-    <input type="number" id="nitrogen" name="nitrogen" min="0" step="0.01" required />
-    <br><br>
+      <label for="nitrogen">Available Nitrogen in soil (kg/ha):</label>
+      <input type="number" id="nitrogen" name="nitrogen" min="0" step="0.01" required />
+      <br><br>
 
-    <label for="phosphorous">Available Phosphorous in soil (mg/kg):</label>
-    <input type="number" id="phosphorous" name="phosphorous" min="0" step="0.01" required />
-    <br><br>
+      <label for="phosphorous">Available Phosphorous in soil (kg/ha):</label>
+      <input type="number" id="phosphorous" name="phosphorous" min="0" step="0.01" required />
+      <br><br>
 
-    <label for="potassium">Available Potassium in soil (mg/kg):</label>
-    <input type="number" id="potassium" name="potassium" min="0" step="0.01" required />
-    <br><br>
+      <label for="potassium">Available Potassium in soil (kg/ha):</label>
+      <input type="number" id="potassium" name="potassium" min="0" step="0.01" required />
+      <br><br>
 
       <button type="button" onclick="sub()">Check requirements</button>
       <br><br>
@@ -157,9 +151,9 @@
           pH Check: <span id="pH"></span>
         </p>
 
-      <p>
-        Moisture Check: <span id="moisture"></span>
-      </p>
+        <p>
+          TDS Check: <span id="tds"></span>
+        </p>
 
         <p>
           Nitrogen Fertilizer Requirement (46-0-0 fertilizer):
@@ -184,9 +178,9 @@
           Potassium Fertilizer Cost: ₹<span id="displayTotalPotassiumCost"></span>
         </p>
 
-      <!--<p>
-        Estimated Seed Cost: ₹<span id="seedCost"></span>
-      </p>-->
+        <p>
+          Estimated Seed Cost: ₹<span id="seedCost"></span>
+        </p>
 
         <p>Estimated Cost: ₹<span id="displayTotalCost"></span></p>
 
